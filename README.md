@@ -87,12 +87,13 @@ The Best Group's App Project - README
 
 
 ## Wireframes
-<img src="" width=600>![](https://i.imgur.com/LpozLg7.png)
+![](https://i.imgur.com/xvTuyCC.png)
+
 ### [BONUS] Interactive Prototype
-![](https://i.imgur.com/LqvqugC.gif)
+![](https://i.imgur.com/WrHWQjW.gif)
 
 
-![](https://i.imgur.com/9iHzfOF.gif)
+![](https://i.imgur.com/ThP8WtQ.gif)
 
 ## Schema 
 [This section will be completed in Unit 9]
