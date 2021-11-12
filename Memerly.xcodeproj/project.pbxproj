@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		F6825AAB2730ACFB00D2E438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825AAA2730ACFB00D2E438 /* AppDelegate.swift */; };
 		F6825AAD2730ACFB00D2E438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825AAC2730ACFB00D2E438 /* SceneDelegate.swift */; };
-		F6825AAF2730ACFB00D2E438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825AAE2730ACFB00D2E438 /* ViewController.swift */; };
 		F6825AB22730ACFB00D2E438 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6825AB02730ACFB00D2E438 /* Main.storyboard */; };
 		F6825AB42730ACFC00D2E438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6825AB32730ACFC00D2E438 /* Assets.xcassets */; };
 		F6825AB72730ACFC00D2E438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6825AB52730ACFC00D2E438 /* LaunchScreen.storyboard */; };
 		F6825AC22730ACFC00D2E438 /* MemerlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825AC12730ACFC00D2E438 /* MemerlyTests.swift */; };
 		F6825ACC2730ACFC00D2E438 /* MemerlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825ACB2730ACFC00D2E438 /* MemerlyUITests.swift */; };
 		F6825ACE2730ACFC00D2E438 /* MemerlyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825ACD2730ACFC00D2E438 /* MemerlyUITestsLaunchTests.swift */; };
+		F6A69DD4273F216B00D86F2B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DD3273F216B00D86F2B /* LoginViewController.swift */; };
+		F6A69DD8273F21B100D86F2B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DD7273F21B100D86F2B /* SignupViewController.swift */; };
+		F6A69DDA273F21D800D86F2B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DD9273F21D800D86F2B /* FeedViewController.swift */; };
+		F6A69DDC273F220E00D86F2B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DDB273F220E00D86F2B /* PostViewController.swift */; };
+		F6A69DDE273F223300D86F2B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DDD273F223300D86F2B /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,6 @@
 		F6825AA72730ACFB00D2E438 /* Memerly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memerly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6825AAA2730ACFB00D2E438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6825AAC2730ACFB00D2E438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F6825AAE2730ACFB00D2E438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F6825AB12730ACFB00D2E438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6825AB32730ACFC00D2E438 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6825AB62730ACFC00D2E438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		F6825AC72730ACFC00D2E438 /* MemerlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemerlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6825ACB2730ACFC00D2E438 /* MemerlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemerlyUITests.swift; sourceTree = "<group>"; };
 		F6825ACD2730ACFC00D2E438 /* MemerlyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemerlyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F6A69DD3273F216B00D86F2B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F6A69DD7273F21B100D86F2B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		F6A69DD9273F21D800D86F2B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		F6A69DDB273F220E00D86F2B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		F6A69DDD273F223300D86F2B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +109,15 @@
 			children = (
 				F6825AAA2730ACFB00D2E438 /* AppDelegate.swift */,
 				F6825AAC2730ACFB00D2E438 /* SceneDelegate.swift */,
-				F6825AAE2730ACFB00D2E438 /* ViewController.swift */,
 				F6825AB02730ACFB00D2E438 /* Main.storyboard */,
 				F6825AB32730ACFC00D2E438 /* Assets.xcassets */,
 				F6825AB52730ACFC00D2E438 /* LaunchScreen.storyboard */,
 				F6825AB82730ACFC00D2E438 /* Info.plist */,
+				F6A69DD3273F216B00D86F2B /* LoginViewController.swift */,
+				F6A69DD7273F21B100D86F2B /* SignupViewController.swift */,
+				F6A69DD9273F21D800D86F2B /* FeedViewController.swift */,
+				F6A69DDB273F220E00D86F2B /* PostViewController.swift */,
+				F6A69DDD273F223300D86F2B /* ProfileViewController.swift */,
 			);
 			path = Memerly;
 			sourceTree = "<group>";
@@ -258,8 +270,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6825AAF2730ACFB00D2E438 /* ViewController.swift in Sources */,
+				F6A69DDC273F220E00D86F2B /* PostViewController.swift in Sources */,
+				F6A69DD4273F216B00D86F2B /* LoginViewController.swift in Sources */,
 				F6825AAB2730ACFB00D2E438 /* AppDelegate.swift in Sources */,
+				F6A69DDA273F21D800D86F2B /* FeedViewController.swift in Sources */,
+				F6A69DDE273F223300D86F2B /* ProfileViewController.swift in Sources */,
+				F6A69DD8273F21B100D86F2B /* SignupViewController.swift in Sources */,
 				F6825AAD2730ACFB00D2E438 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
