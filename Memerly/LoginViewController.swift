@@ -9,13 +9,28 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signupButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    //Action when Login button is tapped
+    @IBAction func onLogin(_ sender: Any) {
+        
+    }
+    
+    //Action when signup button is tapped
+    @IBAction func onSignup(_ sender: Any) {
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 

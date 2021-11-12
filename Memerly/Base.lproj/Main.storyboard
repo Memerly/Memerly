@@ -22,7 +22,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log In"/>
                                 <connections>
-                                    <segue destination="BLK-As-Ysu" kind="presentation" identifier="LoginSegue" id="By9-Fi-ye6"/>
+                                    <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xto-nC-YaN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MN-fP-XhZ">
@@ -31,6 +31,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="SIgn Up"/>
                                 <connections>
+                                    <action selector="onSignup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O9D-XI-Lyl"/>
                                     <segue destination="xfI-ak-I3M" kind="show" id="qBS-ql-36v"/>
                                 </connections>
                             </button>
@@ -72,6 +73,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="4gt-dQ-rxo"/>
+                    <connections>
+                        <outlet property="loginButton" destination="dfa-fw-cCS" id="VCT-1I-ShJ"/>
+                        <outlet property="passwordField" destination="e26-L3-UQI" id="mJK-15-dwu"/>
+                        <outlet property="signupButton" destination="3MN-fP-XhZ" id="ESQ-1t-XV4"/>
+                        <outlet property="userNameField" destination="SgO-RK-8ST" id="X0W-wV-gbR"/>
+                        <segue destination="BLK-As-Ysu" kind="presentation" identifier="loginSegue" id="sDt-5f-alF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
