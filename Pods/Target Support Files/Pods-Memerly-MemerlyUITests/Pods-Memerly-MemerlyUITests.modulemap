@@ -1,0 +1,6 @@
+framework module Pods_Memerly_MemerlyUITests {
+  umbrella header "Pods-Memerly-MemerlyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
