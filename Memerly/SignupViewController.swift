@@ -6,16 +6,40 @@
 //
 
 import UIKit
+import Parse
 
 class SignupViewController: UIViewController {
 
+    @IBOutlet weak var firstNameField: UITextField!
+    @IBOutlet weak var lastNameField: UITextField!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    //Action when signup button is tapped
+    @IBAction func onSignup(_ sender: Any) {
+        let user = PFUser()
+        user["fName"] = firstNameField.text
+        user["lName"] = lastNameField.text
+        user.username = usernameField.text
+        user.password = passwordField.text
+        
+        user.signUpInBackground { (success, error) in
+            if success {
+                self.performSegue(withIdentifier: "loginOnSignup", sender: nil)
+            } else {
+                print("Error: \(error?.localizedDescription)")
+            }
+            
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 
