@@ -7,15 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EEEA2D90DBFED5F2B000A4F /* Pods_Memerly_MemerlyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889144BA56525BD4A15445A8 /* Pods_Memerly_MemerlyUITests.framework */; };
+		BF8CFB9C5F476EA9346A6E80 /* Pods_Memerly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F620666CF50B3560B883B8E5 /* Pods_Memerly.framework */; };
+		C201C0266B3DCD441B261326 /* Pods_MemerlyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D579247768205326262131B /* Pods_MemerlyTests.framework */; };
 		F6825AAB2730ACFB00D2E438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825AAA2730ACFB00D2E438 /* AppDelegate.swift */; };
 		F6825AAD2730ACFB00D2E438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825AAC2730ACFB00D2E438 /* SceneDelegate.swift */; };
-		F6825AAF2730ACFB00D2E438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825AAE2730ACFB00D2E438 /* ViewController.swift */; };
 		F6825AB22730ACFB00D2E438 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6825AB02730ACFB00D2E438 /* Main.storyboard */; };
 		F6825AB42730ACFC00D2E438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6825AB32730ACFC00D2E438 /* Assets.xcassets */; };
 		F6825AB72730ACFC00D2E438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6825AB52730ACFC00D2E438 /* LaunchScreen.storyboard */; };
 		F6825AC22730ACFC00D2E438 /* MemerlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825AC12730ACFC00D2E438 /* MemerlyTests.swift */; };
 		F6825ACC2730ACFC00D2E438 /* MemerlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825ACB2730ACFC00D2E438 /* MemerlyUITests.swift */; };
 		F6825ACE2730ACFC00D2E438 /* MemerlyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825ACD2730ACFC00D2E438 /* MemerlyUITestsLaunchTests.swift */; };
+		F6A69DD4273F216B00D86F2B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DD3273F216B00D86F2B /* LoginViewController.swift */; };
+		F6A69DD8273F21B100D86F2B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DD7273F21B100D86F2B /* SignupViewController.swift */; };
+		F6A69DDA273F21D800D86F2B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DD9273F21D800D86F2B /* FeedViewController.swift */; };
+		F6A69DDC273F220E00D86F2B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DDB273F220E00D86F2B /* PostViewController.swift */; };
+		F6A69DDE273F223300D86F2B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DDD273F223300D86F2B /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +43,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		889144BA56525BD4A15445A8 /* Pods_Memerly_MemerlyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memerly_MemerlyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CCDDE0014D8702CF393A4F5 /* Pods-MemerlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemerlyTests.debug.xcconfig"; path = "Target Support Files/Pods-MemerlyTests/Pods-MemerlyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8D579247768205326262131B /* Pods_MemerlyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemerlyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F7B0630D76AD8B87BEBE07C /* Pods-Memerly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memerly.release.xcconfig"; path = "Target Support Files/Pods-Memerly/Pods-Memerly.release.xcconfig"; sourceTree = "<group>"; };
+		B29FE6324106D3399BB35216 /* Pods-Memerly-MemerlyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memerly-MemerlyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Memerly-MemerlyUITests/Pods-Memerly-MemerlyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C522B65BA2F91F283CD778A3 /* Pods-MemerlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemerlyTests.release.xcconfig"; path = "Target Support Files/Pods-MemerlyTests/Pods-MemerlyTests.release.xcconfig"; sourceTree = "<group>"; };
+		C6941C95E058EE01DA4CE072 /* Pods-Memerly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memerly.debug.xcconfig"; path = "Target Support Files/Pods-Memerly/Pods-Memerly.debug.xcconfig"; sourceTree = "<group>"; };
+		E9A89C3140EDCF51AB8D02F7 /* Pods-Memerly-MemerlyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memerly-MemerlyUITests.release.xcconfig"; path = "Target Support Files/Pods-Memerly-MemerlyUITests/Pods-Memerly-MemerlyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F620666CF50B3560B883B8E5 /* Pods_Memerly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memerly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6825AA72730ACFB00D2E438 /* Memerly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memerly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6825AAA2730ACFB00D2E438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6825AAC2730ACFB00D2E438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F6825AAE2730ACFB00D2E438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F6825AB12730ACFB00D2E438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6825AB32730ACFC00D2E438 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6825AB62730ACFC00D2E438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +64,11 @@
 		F6825AC72730ACFC00D2E438 /* MemerlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemerlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6825ACB2730ACFC00D2E438 /* MemerlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemerlyUITests.swift; sourceTree = "<group>"; };
 		F6825ACD2730ACFC00D2E438 /* MemerlyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemerlyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F6A69DD3273F216B00D86F2B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F6A69DD7273F21B100D86F2B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		F6A69DD9273F21D800D86F2B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		F6A69DDB273F220E00D86F2B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		F6A69DDD273F223300D86F2B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF8CFB9C5F476EA9346A6E80 /* Pods_Memerly.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C201C0266B3DCD441B261326 /* Pods_MemerlyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +92,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EEEA2D90DBFED5F2B000A4F /* Pods_Memerly_MemerlyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AA08B8CABBE360C07F78A4F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C6941C95E058EE01DA4CE072 /* Pods-Memerly.debug.xcconfig */,
+				8F7B0630D76AD8B87BEBE07C /* Pods-Memerly.release.xcconfig */,
+				B29FE6324106D3399BB35216 /* Pods-Memerly-MemerlyUITests.debug.xcconfig */,
+				E9A89C3140EDCF51AB8D02F7 /* Pods-Memerly-MemerlyUITests.release.xcconfig */,
+				8CCDDE0014D8702CF393A4F5 /* Pods-MemerlyTests.debug.xcconfig */,
+				C522B65BA2F91F283CD778A3 /* Pods-MemerlyTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8BD79805B9AA36BAEE5E065F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F620666CF50B3560B883B8E5 /* Pods_Memerly.framework */,
+				889144BA56525BD4A15445A8 /* Pods_Memerly_MemerlyUITests.framework */,
+				8D579247768205326262131B /* Pods_MemerlyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F6825A9E2730ACFB00D2E438 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +130,8 @@
 				F6825AC02730ACFC00D2E438 /* MemerlyTests */,
 				F6825ACA2730ACFC00D2E438 /* MemerlyUITests */,
 				F6825AA82730ACFB00D2E438 /* Products */,
+				5AA08B8CABBE360C07F78A4F /* Pods */,
+				8BD79805B9AA36BAEE5E065F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +150,15 @@
 			children = (
 				F6825AAA2730ACFB00D2E438 /* AppDelegate.swift */,
 				F6825AAC2730ACFB00D2E438 /* SceneDelegate.swift */,
-				F6825AAE2730ACFB00D2E438 /* ViewController.swift */,
 				F6825AB02730ACFB00D2E438 /* Main.storyboard */,
 				F6825AB32730ACFC00D2E438 /* Assets.xcassets */,
 				F6825AB52730ACFC00D2E438 /* LaunchScreen.storyboard */,
 				F6825AB82730ACFC00D2E438 /* Info.plist */,
+				F6A69DD3273F216B00D86F2B /* LoginViewController.swift */,
+				F6A69DD7273F21B100D86F2B /* SignupViewController.swift */,
+				F6A69DD9273F21D800D86F2B /* FeedViewController.swift */,
+				F6A69DDB273F220E00D86F2B /* PostViewController.swift */,
+				F6A69DDD273F223300D86F2B /* ProfileViewController.swift */,
 			);
 			path = Memerly;
 			sourceTree = "<group>";
@@ -134,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6825AD12730ACFC00D2E438 /* Build configuration list for PBXNativeTarget "Memerly" */;
 			buildPhases = (
+				0850A0DC9A035847753835A3 /* [CP] Check Pods Manifest.lock */,
 				F6825AA32730ACFB00D2E438 /* Sources */,
 				F6825AA42730ACFB00D2E438 /* Frameworks */,
 				F6825AA52730ACFB00D2E438 /* Resources */,
+				5E832559AF07FE13C008D34C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6825AD42730ACFC00D2E438 /* Build configuration list for PBXNativeTarget "MemerlyTests" */;
 			buildPhases = (
+				F8C7C7241F1AC157D64A424F /* [CP] Check Pods Manifest.lock */,
 				F6825AB92730ACFC00D2E438 /* Sources */,
 				F6825ABA2730ACFC00D2E438 /* Frameworks */,
 				F6825ABB2730ACFC00D2E438 /* Resources */,
@@ -169,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6825AD72730ACFC00D2E438 /* Build configuration list for PBXNativeTarget "MemerlyUITests" */;
 			buildPhases = (
+				F5813513F7C3977CF781AB85 /* [CP] Check Pods Manifest.lock */,
 				F6825AC32730ACFC00D2E438 /* Sources */,
 				F6825AC42730ACFC00D2E438 /* Frameworks */,
 				F6825AC52730ACFC00D2E438 /* Resources */,
+				2815770F2A0EB663CD958560 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,13 +311,120 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0850A0DC9A035847753835A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Memerly-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2815770F2A0EB663CD958560 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Memerly-MemerlyUITests/Pods-Memerly-MemerlyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Memerly-MemerlyUITests/Pods-Memerly-MemerlyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Memerly-MemerlyUITests/Pods-Memerly-MemerlyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E832559AF07FE13C008D34C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Memerly/Pods-Memerly-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Memerly/Pods-Memerly-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Memerly/Pods-Memerly-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5813513F7C3977CF781AB85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Memerly-MemerlyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8C7C7241F1AC157D64A424F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MemerlyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F6825AA32730ACFB00D2E438 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6825AAF2730ACFB00D2E438 /* ViewController.swift in Sources */,
+				F6A69DDC273F220E00D86F2B /* PostViewController.swift in Sources */,
+				F6A69DD4273F216B00D86F2B /* LoginViewController.swift in Sources */,
 				F6825AAB2730ACFB00D2E438 /* AppDelegate.swift in Sources */,
+				F6A69DDA273F21D800D86F2B /* FeedViewController.swift in Sources */,
+				F6A69DDE273F223300D86F2B /* ProfileViewController.swift in Sources */,
+				F6A69DD8273F21B100D86F2B /* SignupViewController.swift in Sources */,
 				F6825AAD2730ACFB00D2E438 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +599,7 @@
 		};
 		F6825AD22730ACFC00D2E438 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6941C95E058EE01DA4CE072 /* Pods-Memerly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -461,6 +627,7 @@
 		};
 		F6825AD32730ACFC00D2E438 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F7B0630D76AD8B87BEBE07C /* Pods-Memerly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -488,6 +655,7 @@
 		};
 		F6825AD52730ACFC00D2E438 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CCDDE0014D8702CF393A4F5 /* Pods-MemerlyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +680,7 @@
 		};
 		F6825AD62730ACFC00D2E438 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C522B65BA2F91F283CD778A3 /* Pods-MemerlyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -536,6 +705,7 @@
 		};
 		F6825AD82730ACFC00D2E438 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B29FE6324106D3399BB35216 /* Pods-Memerly-MemerlyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -558,6 +728,7 @@
 		};
 		F6825AD92730ACFC00D2E438 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9A89C3140EDCF51AB8D02F7 /* Pods-Memerly-MemerlyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
