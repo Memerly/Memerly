@@ -7,6 +7,8 @@ target 'Memerly' do
 
   # Pods for Memerly
   pod 'Parse'
+  pod 'AlamofireImage'
+  pod 'MessageInputBar'
   target 'MemerlyTests' do
     inherit! :search_paths
     # Pods for testing
