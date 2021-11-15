@@ -305,3 +305,5 @@ The Best Group's App Project - README
 ## Current App
 
 ![](https://i.imgur.com/HWc3Hir.gif)
+
+![](https://i.imgur.com/jM9mhzk.gif)
