@@ -7,7 +7,7 @@
 		<key>Alamofire.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>7</integer>
 		</dict>
 		<key>AlamofireImage.xcscheme_^#shared#^_</key>
 		<dict>
@@ -24,7 +24,7 @@
 		<key>MessageInputBar.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>6</integer>
 		</dict>
 		<key>Parse-Parse.xcscheme</key>
 		<dict>

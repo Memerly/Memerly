@@ -345,53 +345,67 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="266" id="EFj-tv-JKt">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="266"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="385" id="EFj-tv-JKt" customClass="PostCell" customModule="Memerly" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="385"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EFj-tv-JKt" id="07W-Wn-wlX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="385"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pbD-j6-i0c">
-                                                    <rect key="frame" x="3" y="238" width="149" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" systemColor="systemGrayColor"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HHO-uz-hRm">
+                                                    <rect key="frame" x="8" y="8" width="398" height="305"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="HHO-uz-hRm" secondAttribute="height" multiplier="398:305" id="gdR-Nq-ZtP"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ki5-kH-TRX">
+                                                    <rect key="frame" x="8" y="321" width="84" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption goes here in this line." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCn-Ty-GFF">
+                                                    <rect key="frame" x="8" y="357" width="398" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spr-Y5-QAF">
+                                                    <rect key="frame" x="288" y="321" width="46" height="31"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain">
-                                                        <attributedString key="attributedTitle">
-                                                            <fragment content="Comment on post">
-                                                                <attributes>
-                                                                    <font key="NSFont" size="10" name="Helvetica"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <segue destination="IpE-rV-Plc" kind="show" id="Unz-Kx-WmO"/>
-                                                    </connections>
+                                                    <buttonConfiguration key="configuration" style="plain" image="message" catalog="system"/>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROV-Hb-vJZ">
-                                                    <rect key="frame" x="20" y="172" width="90" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" systemColor="systemYellowColor"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egn-Z4-RZX">
+                                                    <rect key="frame" x="342" y="321" width="44.5" height="31"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain">
-                                                        <attributedString key="attributedTitle">
-                                                            <fragment content="username">
-                                                                <attributes>
-                                                                    <font key="NSFont" size="12" name="Helvetica"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <segue destination="q66-Zl-lG0" kind="show" id="dbT-o1-wq0"/>
-                                                    </connections>
+                                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ki5-kH-TRX" firstAttribute="leading" secondItem="07W-Wn-wlX" secondAttribute="leading" constant="8" id="2Al-us-mHX"/>
+                                                <constraint firstAttribute="trailing" secondItem="HHO-uz-hRm" secondAttribute="trailing" constant="8" id="2ed-Tf-P6m"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RCn-Ty-GFF" secondAttribute="bottom" constant="8" id="2xc-Mt-vSX"/>
+                                                <constraint firstItem="spr-Y5-QAF" firstAttribute="leading" secondItem="Ki5-kH-TRX" secondAttribute="trailing" constant="196" id="4f8-Ry-dce"/>
+                                                <constraint firstAttribute="trailing" secondItem="RCn-Ty-GFF" secondAttribute="trailing" constant="8" id="9dM-3N-P3N"/>
+                                                <constraint firstItem="Ki5-kH-TRX" firstAttribute="top" secondItem="HHO-uz-hRm" secondAttribute="bottom" constant="8" id="ANR-30-BG3"/>
+                                                <constraint firstItem="egn-Z4-RZX" firstAttribute="leading" secondItem="spr-Y5-QAF" secondAttribute="trailing" constant="8" id="CGn-Bc-kXU"/>
+                                                <constraint firstItem="egn-Z4-RZX" firstAttribute="top" secondItem="HHO-uz-hRm" secondAttribute="bottom" constant="8" id="GjO-ST-EFo"/>
+                                                <constraint firstItem="HHO-uz-hRm" firstAttribute="top" secondItem="07W-Wn-wlX" secondAttribute="top" constant="8" id="I13-QF-JK5"/>
+                                                <constraint firstItem="spr-Y5-QAF" firstAttribute="top" secondItem="HHO-uz-hRm" secondAttribute="bottom" constant="8" id="QdT-AY-9wa"/>
+                                                <constraint firstItem="HHO-uz-hRm" firstAttribute="leading" secondItem="07W-Wn-wlX" secondAttribute="leading" constant="8" id="ZBX-dT-7bf"/>
+                                                <constraint firstItem="RCn-Ty-GFF" firstAttribute="top" secondItem="Ki5-kH-TRX" secondAttribute="bottom" constant="15" id="ZpW-EU-RZb"/>
+                                                <constraint firstItem="RCn-Ty-GFF" firstAttribute="leading" secondItem="07W-Wn-wlX" secondAttribute="leading" constant="8" id="qfc-v8-f6f"/>
+                                                <constraint firstItem="egn-Z4-RZX" firstAttribute="top" secondItem="HHO-uz-hRm" secondAttribute="bottom" constant="8" id="rzn-4f-Lr4"/>
+                                                <constraint firstItem="spr-Y5-QAF" firstAttribute="top" secondItem="HHO-uz-hRm" secondAttribute="bottom" constant="8" id="uZD-eB-EFi"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="RCn-Ty-GFF" id="IOZ-EM-nAz"/>
+                                            <outlet property="commentButton" destination="spr-Y5-QAF" id="2Ym-jy-SMe"/>
+                                            <outlet property="heartButton" destination="egn-Z4-RZX" id="3VK-jS-SBt"/>
+                                            <outlet property="memeView" destination="HHO-uz-hRm" id="Q3S-K5-JhV"/>
+                                            <outlet property="usernameLabel" destination="Ki5-kH-TRX" id="AXI-Dd-mX6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -400,6 +414,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Eqi-6A-O1q"/>
+                    <connections>
+                        <outlet property="tableView" destination="a4D-1D-LDj" id="46L-16-Ule"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ey-Wb-3WK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -517,16 +534,15 @@
         <segue reference="RLp-eC-abs"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="memerly_logo_white" width="789" height="181"/>
+        <image name="message" catalog="system" width="128" height="113"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
