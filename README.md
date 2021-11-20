@@ -8,6 +8,7 @@ The Best Group's App Project - README
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
 2. [Schema](#Schema)
+3. [Current App](#Current-App)
 
 ## Overview
 ### Description
@@ -300,3 +301,9 @@ The Best Group's App Project - README
         ```
          
       - (Update/PUT) Update user profile image
+
+## Current App
+
+![](https://i.imgur.com/HWc3Hir.gif)
+
+![](https://i.imgur.com/jM9mhzk.gif)
