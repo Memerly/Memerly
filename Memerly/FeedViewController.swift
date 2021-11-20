@@ -14,13 +14,18 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [PFObject]()
+    let myRefreshControl = UIRefreshControl() // pull to refresh
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+
+        // pull to refresh
+        myRefreshControl.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
+        self.tableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -34,6 +39,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             if posts != nil {
                 self.posts = posts!
                 self.tableView.reloadData()
+                self.myRefreshControl.endRefreshing() //pull to refresh
             }
         }
     }
