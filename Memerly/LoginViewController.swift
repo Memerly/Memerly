@@ -18,7 +18,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //forcing darkmode
+        overrideUserInterfaceStyle = .dark
     }
     
     //Action when Login button is tapped

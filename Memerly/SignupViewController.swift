@@ -18,7 +18,8 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //forcing darkmode
+        overrideUserInterfaceStyle = .dark
     }
     
     //Action when signup button is tapped
