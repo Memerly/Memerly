@@ -18,6 +18,7 @@
 		F6825AC22730ACFC00D2E438 /* MemerlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825AC12730ACFC00D2E438 /* MemerlyTests.swift */; };
 		F6825ACC2730ACFC00D2E438 /* MemerlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825ACB2730ACFC00D2E438 /* MemerlyUITests.swift */; };
 		F6825ACE2730ACFC00D2E438 /* MemerlyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825ACD2730ACFC00D2E438 /* MemerlyUITestsLaunchTests.swift */; };
+		F6A4B0FC274978C100748661 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4B0FB274978C100748661 /* PostCell.swift */; };
 		F6A69DD4273F216B00D86F2B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DD3273F216B00D86F2B /* LoginViewController.swift */; };
 		F6A69DD8273F21B100D86F2B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DD7273F21B100D86F2B /* SignupViewController.swift */; };
 		F6A69DDA273F21D800D86F2B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DD9273F21D800D86F2B /* FeedViewController.swift */; };
@@ -64,6 +65,7 @@
 		F6825AC72730ACFC00D2E438 /* MemerlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemerlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6825ACB2730ACFC00D2E438 /* MemerlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemerlyUITests.swift; sourceTree = "<group>"; };
 		F6825ACD2730ACFC00D2E438 /* MemerlyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemerlyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F6A4B0FB274978C100748661 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F6A69DD3273F216B00D86F2B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F6A69DD7273F21B100D86F2B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F6A69DD9273F21D800D86F2B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				F6A69DD9273F21D800D86F2B /* FeedViewController.swift */,
 				F6A69DDB273F220E00D86F2B /* PostViewController.swift */,
 				F6A69DDD273F223300D86F2B /* ProfileViewController.swift */,
+				F6A4B0FB274978C100748661 /* PostCell.swift */,
 			);
 			path = Memerly;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				F6A69DDE273F223300D86F2B /* ProfileViewController.swift in Sources */,
 				F6A69DD8273F21B100D86F2B /* SignupViewController.swift in Sources */,
 				F6825AAD2730ACFB00D2E438 /* SceneDelegate.swift in Sources */,
+				F6A4B0FC274978C100748661 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,9 +606,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34THN99WAR;
+				DEVELOPMENT_TEAM = 23DBPAFDLB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Memerly/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -617,8 +622,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Team1.Memerly;
+				PRODUCT_BUNDLE_IDENTIFIER = Memerly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -631,9 +637,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 34THN99WAR;
+				DEVELOPMENT_TEAM = 23DBPAFDLB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Memerly/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -646,8 +653,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Team1.Memerly;
+				PRODUCT_BUNDLE_IDENTIFIER = Memerly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
