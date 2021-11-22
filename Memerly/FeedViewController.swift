@@ -57,26 +57,33 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let post = posts[indexPath.row]
         
         let user = post["author"] as! PFUser
-        cell.usernameLabel.text = user.username
+//        cell.usernameLabel.text = user.username
+	    cell.usernameButton.setTitle(user.username, for: .normal)
+	    cell.usernameButton.tag = indexPath.row
         
-        cell.captionLabel.text = post["caption"] as! String
+	    cell.captionLabel.text = post["caption"] as? String
         
         let imageFile = post["image"] as! PFFileObject
         let urlString = imageFile.url!
         let url = URL(string: urlString)!
         
-        cell.memeView.af_setImage(withURL: url)
+	    cell.memeView.af.setImage(withURL: url)
         
         return cell
     }
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+	    if let vc = segue.destination as? OtherProfileViewController {
+		    if let button = sender as? UIButton {
+			    let index = button.tag
+			    let post = posts[index]
+			    vc.user = post["author"] as! PFUser
+		    }
+	    }
     }
-    */
-
 }
