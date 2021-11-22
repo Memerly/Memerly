@@ -18,6 +18,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //forcing darkmode
+        overrideUserInterfaceStyle = .dark
 
         tableView.delegate = self
         tableView.dataSource = self
