@@ -14,12 +14,15 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var profileImangeView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //forcing darkmode
         overrideUserInterfaceStyle = .dark
+        
+        profileImangeView.layer.cornerRadius = profileImangeView.frame.size.width / 2
     }
     
     //Action when signup button is tapped
