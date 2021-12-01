@@ -28,12 +28,12 @@ The Best Group's App Project - README
 
 **Required Must-have Stories**
 
-* User can Login
-* User can register account
-* User can Post a Meme
-* User can go to its profile page
-* User can see feed of all the memes
-* User can see another user's profile
+* [x] User can Login
+* [x] User can register account
+* [x] User can Post a Meme
+* [ ] User can go to its profile page
+* [ ] User can see feed of all the memes
+* [ ] User can see another user's profile
 
 **Optional Nice-to-have Stories**
 
