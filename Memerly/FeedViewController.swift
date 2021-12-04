@@ -36,6 +36,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let query  = PFQuery(className: "Posts")
         query.includeKey("author")
+	    query.order(byDescending: "createdAt")
         query.limit = 20
         
         query.findObjectsInBackground { (posts, error) in
@@ -57,7 +58,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let post = posts[indexPath.row]
         
         let user = post["author"] as! PFUser
-//        cell.usernameLabel.text = user.username
 	    cell.usernameButton.setTitle(user.username, for: .normal)
 	    cell.usernameButton.tag = indexPath.row
         
@@ -83,6 +83,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 			    let index = button.tag
 			    let post = posts[index]
 			    vc.user = post["author"] as! PFUser
+			    vc.posts = posts
 		    }
 	    }
     }

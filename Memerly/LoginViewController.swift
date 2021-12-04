@@ -9,6 +9,7 @@ import UIKit
 import Parse
 
 class LoginViewController: UIViewController {
+	let defaults = UserDefaults.standard
 
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -21,6 +22,7 @@ class LoginViewController: UIViewController {
         //forcing darkmode
         overrideUserInterfaceStyle = .dark
     }
+	
     
     //Action when Login button is tapped
     @IBAction func onLogin(_ sender: Any) {
@@ -29,9 +31,10 @@ class LoginViewController: UIViewController {
         
         PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
             if user != nil {
+			  self.defaults.set(user?.objectId, forKey: "currentUser")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
-                print("Error: \(error?.localizedDescription)")
+			  print("Error: \(error?.localizedDescription)")
             }
             
         }
