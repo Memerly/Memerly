@@ -13,6 +13,8 @@
 		37A8B2CF274B5FB00066E596 /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8B2CE274B5FB00066E596 /* OtherProfileViewController.swift */; };
 		BF8CFB9C5F476EA9346A6E80 /* Pods_Memerly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F620666CF50B3560B883B8E5 /* Pods_Memerly.framework */; };
 		C201C0266B3DCD441B261326 /* Pods_MemerlyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D579247768205326262131B /* Pods_MemerlyTests.framework */; };
+		F6163438275C090B0039CBC6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6163437275C090B0039CBC6 /* TabBarController.swift */; };
+		F616343A275C0EB30039CBC6 /* FeedNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6163439275C0EB30039CBC6 /* FeedNavController.swift */; };
 		F6825AAB2730ACFB00D2E438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825AAA2730ACFB00D2E438 /* AppDelegate.swift */; };
 		F6825AAD2730ACFB00D2E438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6825AAC2730ACFB00D2E438 /* SceneDelegate.swift */; };
 		F6825AB22730ACFB00D2E438 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6825AB02730ACFB00D2E438 /* Main.storyboard */; };
@@ -58,6 +60,8 @@
 		C522B65BA2F91F283CD778A3 /* Pods-MemerlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemerlyTests.release.xcconfig"; path = "Target Support Files/Pods-MemerlyTests/Pods-MemerlyTests.release.xcconfig"; sourceTree = "<group>"; };
 		C6941C95E058EE01DA4CE072 /* Pods-Memerly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memerly.debug.xcconfig"; path = "Target Support Files/Pods-Memerly/Pods-Memerly.debug.xcconfig"; sourceTree = "<group>"; };
 		E9A89C3140EDCF51AB8D02F7 /* Pods-Memerly-MemerlyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memerly-MemerlyUITests.release.xcconfig"; path = "Target Support Files/Pods-Memerly-MemerlyUITests/Pods-Memerly-MemerlyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F6163437275C090B0039CBC6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F6163439275C0EB30039CBC6 /* FeedNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNavController.swift; sourceTree = "<group>"; };
 		F620666CF50B3560B883B8E5 /* Pods_Memerly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memerly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6825AA72730ACFB00D2E438 /* Memerly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memerly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6825AAA2730ACFB00D2E438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				F6825AAA2730ACFB00D2E438 /* AppDelegate.swift */,
 				F6825AAC2730ACFB00D2E438 /* SceneDelegate.swift */,
 				F6825AB02730ACFB00D2E438 /* Main.storyboard */,
+				F6163437275C090B0039CBC6 /* TabBarController.swift */,
 				F6825AB32730ACFC00D2E438 /* Assets.xcassets */,
 				F6825AB52730ACFC00D2E438 /* LaunchScreen.storyboard */,
 				F6825AB82730ACFC00D2E438 /* Info.plist */,
@@ -170,6 +175,7 @@
 				F6A69DDD273F223300D86F2B /* ProfileViewController.swift */,
 				37A8B2CE274B5FB00066E596 /* OtherProfileViewController.swift */,
 				F6A4B0FB274978C100748661 /* PostCell.swift */,
+				F6163439275C0EB30039CBC6 /* FeedNavController.swift */,
 			);
 			path = Memerly;
 			sourceTree = "<group>";
@@ -434,11 +440,13 @@
 				37477A8C275B32B500C30A67 /* PostCollectionViewCell.swift in Sources */,
 				F6A69DDC273F220E00D86F2B /* PostViewController.swift in Sources */,
 				37A8B2CF274B5FB00066E596 /* OtherProfileViewController.swift in Sources */,
+				F616343A275C0EB30039CBC6 /* FeedNavController.swift in Sources */,
 				F6A69DD4273F216B00D86F2B /* LoginViewController.swift in Sources */,
 				F6825AAB2730ACFB00D2E438 /* AppDelegate.swift in Sources */,
 				F6A69DDA273F21D800D86F2B /* FeedViewController.swift in Sources */,
 				F6A69DDE273F223300D86F2B /* ProfileViewController.swift in Sources */,
 				F6A69DD8273F21B100D86F2B /* SignupViewController.swift in Sources */,
+				F6163438275C090B0039CBC6 /* TabBarController.swift in Sources */,
 				F6825AAD2730ACFB00D2E438 /* SceneDelegate.swift in Sources */,
 				F6A4B0FC274978C100748661 /* PostCell.swift in Sources */,
 			);

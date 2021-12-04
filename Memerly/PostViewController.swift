@@ -41,8 +41,10 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
 		   post.saveInBackground { (success,error) in
 			  if(success) {
-				 self.performSegue(withIdentifier: "PostedSegue", sender: self)
-				 print("saved!")
+                  self.dismiss(animated: true) {
+                      print("saved!")
+                  }
+				 
 			  }
 			  else {
 				 print("error!")
