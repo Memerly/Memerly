@@ -13,6 +13,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 	weak var activeImageView:UIImageView? = nil
 	var currentUser = PFUser.current()!
 	var posts = [PFObject]()
+	let defaults = UserDefaults.standard
 
 	@IBOutlet weak var bannerPicImageView: UIImageView!
 	@IBOutlet weak var profilePicImageView: UIImageView!
@@ -20,7 +21,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 	@IBOutlet weak var bioTextView: UITextView!
 	@IBOutlet weak var clearProfilePicButton: UIButton!
 	@IBOutlet weak var clearBannerPicButton: UIButton!
-
+	@IBOutlet weak var rememberMeButton: CheckBoxButton!
+	@IBOutlet weak var rememberMeLabel: UILabel!
 
 
 	override func viewDidLoad() {
@@ -54,6 +56,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 			let urlString = img.url!
 			let url = URL(string: urlString)!
 			profilePicImageView.af.setImage(withURL: url)
+			clearProfilePicButton.isHidden = false
+		} else {
+			clearProfilePicButton.isHidden = true
 		}
 
 		let bannerPic = currentUser["bannerPic"]
@@ -62,6 +67,19 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 			let urlString = img.url!
 			let url = URL(string: urlString)!
 			bannerPicImageView.af.setImage(withURL: url)
+			clearBannerPicButton.isHidden = false
+		} else {
+			clearBannerPicButton.isHidden = true
+		}
+
+		let rememberMe = defaults.bool(forKey: "rememberMe")
+		rememberMeButton.isChecked = rememberMe
+		if rememberMe {
+			rememberMeLabel.alpha = 1
+			rememberMeButton.alpha = 1
+		} else {
+			rememberMeLabel.alpha = 0.5
+			rememberMeButton.alpha = 0.5
 		}
 
 	}
@@ -169,6 +187,18 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
 	@IBAction func editBio(_ sender: Any) {
 		bioTextView.becomeFirstResponder()
+	}
+
+	@IBAction func onRememberMeButton(_ sender: CheckBoxButton) {
+		if rememberMeButton.isChecked {
+			rememberMeLabel.alpha = 0.5
+			print("dont remember")
+			defaults.set(false, forKey: "rememberMe")
+		} else if !rememberMeButton.isChecked {
+			rememberMeLabel.alpha = 1
+			print("remember")
+			defaults.set(true, forKey: "rememberMe")
+		}
 	}
 
 

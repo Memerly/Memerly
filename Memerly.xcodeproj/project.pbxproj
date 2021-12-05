@@ -10,6 +10,7 @@
 		0EEEA2D90DBFED5F2B000A4F /* Pods_Memerly_MemerlyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889144BA56525BD4A15445A8 /* Pods_Memerly_MemerlyUITests.framework */; };
 		37477A8C275B32B500C30A67 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37477A8B275B32B500C30A67 /* PostCollectionViewCell.swift */; };
 		37477A8E275B7E5700C30A67 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37477A8D275B7E5700C30A67 /* EditProfileViewController.swift */; };
+		37477A90275C8F3700C30A67 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37477A8F275C8F3700C30A67 /* CheckBoxButton.swift */; };
 		37A8B2CF274B5FB00066E596 /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8B2CE274B5FB00066E596 /* OtherProfileViewController.swift */; };
 		BF8CFB9C5F476EA9346A6E80 /* Pods_Memerly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F620666CF50B3560B883B8E5 /* Pods_Memerly.framework */; };
 		C201C0266B3DCD441B261326 /* Pods_MemerlyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D579247768205326262131B /* Pods_MemerlyTests.framework */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		37477A8B275B32B500C30A67 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		37477A8D275B7E5700C30A67 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		37477A8F275C8F3700C30A67 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
 		37A8B2CE274B5FB00066E596 /* OtherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewController.swift; sourceTree = "<group>"; };
 		889144BA56525BD4A15445A8 /* Pods_Memerly_MemerlyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memerly_MemerlyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CCDDE0014D8702CF393A4F5 /* Pods-MemerlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemerlyTests.debug.xcconfig"; path = "Target Support Files/Pods-MemerlyTests/Pods-MemerlyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				F6A69DD9273F21D800D86F2B /* FeedViewController.swift */,
 				37477A8D275B7E5700C30A67 /* EditProfileViewController.swift */,
 				F6A69DDB273F220E00D86F2B /* PostViewController.swift */,
+				37477A8F275C8F3700C30A67 /* CheckBoxButton.swift */,
 				37477A8B275B32B500C30A67 /* PostCollectionViewCell.swift */,
 				F6A69DDD273F223300D86F2B /* ProfileViewController.swift */,
 				37A8B2CE274B5FB00066E596 /* OtherProfileViewController.swift */,
@@ -440,6 +443,7 @@
 				37477A8C275B32B500C30A67 /* PostCollectionViewCell.swift in Sources */,
 				F6A69DDC273F220E00D86F2B /* PostViewController.swift in Sources */,
 				37A8B2CF274B5FB00066E596 /* OtherProfileViewController.swift in Sources */,
+				37477A90275C8F3700C30A67 /* CheckBoxButton.swift in Sources */,
 				F616343A275C0EB30039CBC6 /* FeedNavController.swift in Sources */,
 				F6A69DD4273F216B00D86F2B /* LoginViewController.swift in Sources */,
 				F6825AAB2730ACFB00D2E438 /* AppDelegate.swift in Sources */,

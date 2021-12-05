@@ -15,13 +15,25 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
-    
+	@IBOutlet weak var rememberMeButton: CheckBoxButton!
+	@IBOutlet weak var rememberMeLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //forcing darkmode
         overrideUserInterfaceStyle = .dark
+
+	    if defaults.bool(forKey: "rememberMe") {
+		    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+
+	    }
     }
+
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(true)
+
+	}
 	
     
     //Action when Login button is tapped
@@ -32,9 +44,10 @@ class LoginViewController: UIViewController {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
             if user != nil {
 			  self.defaults.set(user?.objectId, forKey: "currentUser")
+			  self.defaults.set(true, forKey: "rememberMe")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
-			  print("Error: \(error?.localizedDescription)")
+			  print("Error: \(String(describing: error?.localizedDescription))")
             }
             
         }
@@ -45,7 +58,17 @@ class LoginViewController: UIViewController {
         
     }
     
-    
+	@IBAction func onRememberMeButton(_ sender: CheckBoxButton) {
+		if rememberMeButton.isChecked {
+			rememberMeLabel.alpha = 0.5
+			print("dont remember")
+			defaults.set(false, forKey: "rememberMe")
+		} else if !rememberMeButton.isChecked {
+			rememberMeLabel.alpha = 1
+			print("remember")
+		}
+	}
+
     /*
     // MARK: - Navigation
 
