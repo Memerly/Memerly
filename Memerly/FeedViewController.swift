@@ -12,6 +12,7 @@ import AlamofireImage
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+	let defaultProfilePic = UIImage(systemName: "person.fill")?.withTintColor(UIColor.systemGray3)
     
     var posts = [PFObject]()
     let myRefreshControl = UIRefreshControl() // pull to refresh
@@ -68,6 +69,23 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let url = URL(string: urlString)!
         
 	    cell.memeView.af.setImage(withURL: url)
+	    let profilePicFile = user["profilePic"]
+	    if profilePicFile != nil {
+		    let img = profilePicFile as! PFFileObject
+		    if img.name.contains("defaultProfilePic.png") {
+			    cell.profilePicImageView.image = defaultProfilePic
+		    } else {
+			    let urlString = img.url!
+			    let url = URL(string: urlString)!
+			    cell.profilePicImageView.af.setImage(withURL: url)
+		    }
+	    }
+
+	    cell.profilePicImageView.layer.masksToBounds = false
+	    cell.profilePicImageView.layer.cornerRadius = cell.profilePicImageView.frame.height/2
+	    cell.profilePicImageView.layer.borderWidth = 1
+	    cell.profilePicImageView.layer.borderColor = UIColor.clear.cgColor
+	    cell.profilePicImageView.clipsToBounds = true
         
         return cell
     }

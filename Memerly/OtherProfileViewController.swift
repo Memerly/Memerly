@@ -55,7 +55,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
 		let profilePicFile = user["profilePic"]
 		if profilePicFile != nil {
 			let img = profilePicFile as! PFFileObject
-			if img.name == "defaultProfilePic.png" {
+			if img.name.contains("defaultProfilePic.png") {
 				profilePicImageView.image = defaultProfilePic
 			} else {
 				let urlString = img.url!
@@ -68,7 +68,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
 		let bannerPic = user["bannerPic"]
 		if bannerPic != nil {
 			let img = bannerPic as! PFFileObject
-			if img.name == "defaultProfilePic.png" {
+			if img.name.contains("defaultProfilePic.png") {
 				bannerPicImageView.image = defaultBannerPic
 			} else {
 				let urlString = img.url!

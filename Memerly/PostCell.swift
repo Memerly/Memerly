@@ -13,6 +13,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var heartButton: UIButton!
+	@IBOutlet weak var profilePicImageView: UIImageView!
 	@IBOutlet weak var usernameButton: UIButton!
 	
     override func awakeFromNib() {
