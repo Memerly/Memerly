@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
 	var posts = [PFObject]()
 	let defaultProfilePic = UIImage(systemName: "person.fill")?.withTintColor(UIColor.systemGray3)
 	let defaultBannerPic = UIImage(named: "Default Banner Image")
+	let myRefreshControl = UIRefreshControl() // pull to refresh
 
 	@IBOutlet weak var bannerPicImageView: UIImageView!
 	@IBOutlet weak var profilePicImageView: UIImageView!
@@ -30,6 +31,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
 
 		postsCollectionView.delegate = self
 		postsCollectionView.dataSource = self
+		
 
 	}
 
@@ -64,7 +66,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
 			}
 		}
 
-
 		let bannerPic = currentUser["bannerPic"]
 		if bannerPic != nil {
 			let img = bannerPic as! PFFileObject
@@ -76,21 +77,26 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
 				bannerPicImageView.af.setImage(withURL: url)
 			}
 		}
-		
-		let query = PFQuery(className:"Posts")
-		query.whereKey("author", equalTo: currentUser)
-		query.findObjectsInBackground { (posts, error) in
-			if posts != nil {
-				self.posts = posts!
-				self.postsCollectionView.reloadData()
-			}
-		}
 
 		profilePicImageView.layer.masksToBounds = false
 		profilePicImageView.layer.cornerRadius = profilePicImageView.frame.height/2
 		profilePicImageView.layer.borderWidth = 1
 		profilePicImageView.layer.borderColor = UIColor.clear.cgColor
 		profilePicImageView.clipsToBounds = true
+	}
+
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(true)
+
+		let query = PFQuery(className:"Posts")
+		query.whereKey("author", equalTo: currentUser)
+		query.order(byDescending: "createdAt")
+		query.findObjectsInBackground { (posts, error) in
+			if posts != nil {
+				self.posts = posts!
+				self.postsCollectionView.reloadData()
+			}
+		}
 	}
 
 

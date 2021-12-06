@@ -48,6 +48,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
+//	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//		let selectedPost = posts[indexPath.row]
+//		let selectedPoster = selectedPost["author"] as! PFUser
+//		print(selectedPost.objectId!)
+//
+//		if let viewController = storyboard?.instantiateViewController(identifier: "commentViewController") as? CommentViewController {
+//		    viewController.postID = selectedPost.objectId!
+//		    viewController.poster = selectedPoster
+//		    navigationController?.present(viewController, animated: true)
+//	    }
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -103,6 +114,18 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 			    vc.user = post["author"] as! PFUser
 			    vc.posts = posts
 		    }
+	    } else if let vc = segue.destination as? CommentViewController {
+
+		    let selectedPost = posts[tableView.indexPathForSelectedRow!.row]
+		    let selectedPoster = selectedPost["author"] as! PFUser
+		    let imageFile = selectedPost["image"] as! PFFileObject
+		    let urlString = imageFile.url!
+
+		    vc.postURLString = urlString
+		    vc.postID = selectedPost.objectId!
+		    vc.poster = selectedPoster
+		    vc.post = selectedPost
+
 	    }
     }
 }
