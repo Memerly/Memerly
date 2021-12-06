@@ -23,6 +23,8 @@ class LoginViewController: UIViewController {
 
         //forcing darkmode
         overrideUserInterfaceStyle = .dark
+	    self.navigationController?.setNavigationBarHidden(true, animated: false)
+	    self.navigationController?.setToolbarHidden(true, animated: true)
 
 	    if defaults.bool(forKey: "rememberMe") {
 		    self.performSegue(withIdentifier: "loginSegue", sender: nil)

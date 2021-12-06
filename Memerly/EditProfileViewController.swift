@@ -227,6 +227,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 			defaults.set(true, forKey: "rememberMe")
 		}
 	}
+	@IBAction func onLogoutButton(_ sender: UIButton) {
+		defaults.set(false, forKey: "rememberMe")
+		PFUser.logOut()
+	}
 
 
 	 // MARK: - Navigation
