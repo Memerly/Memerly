@@ -17,8 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfa-fw-cCS">
                                 <rect key="frame" x="79" y="479.66666666666669" width="256" height="36.000000000000057"/>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfa-fw-cCS">
+                                <rect key="frame" x="78" y="556" width="256" height="36.000000000000057"/>
+>>>>>>> main
                                 <color key="backgroundColor" red="0.96862745289999996" green="0.8078432083" blue="0.27450981740000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Ep3-f3-KNh"/>
@@ -35,8 +40,13 @@
                                     <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xto-nC-YaN"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MN-fP-XhZ">
                                 <rect key="frame" x="79" y="539.66666666666663" width="256" height="35.333333333333371"/>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MN-fP-XhZ">
+                                <rect key="frame" x="78" y="616" width="256" height="35.333333333333371"/>
+>>>>>>> main
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -52,7 +62,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e26-L3-UQI">
-                                <rect key="frame" x="79" y="381" width="256" height="34"/>
+                                <rect key="frame" x="78" y="458" width="256" height="34"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="nUs-zE-r5b"/>
@@ -61,7 +71,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SgO-RK-8ST">
-                                <rect key="frame" x="79" y="330" width="256" height="34"/>
+                                <rect key="frame" x="78" y="407" width="256" height="34"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="qWA-p7-lNC"/>
@@ -70,10 +80,10 @@
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="memerly_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="pHX-Uh-3yz">
-                                <rect key="frame" x="79" y="208" width="256" height="79"/>
+                                <rect key="frame" x="82" y="305" width="256" height="79"/>
                             </imageView>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdX-fx-18V" customClass="CheckBoxButton" customModule="Memerly" customModuleProvider="target">
-                                <rect key="frame" x="79" y="423" width="166" height="48"/>
+                                <rect key="frame" x="78" y="500" width="166" height="48"/>
                                 <color key="tintColor" red="0.96862745289999996" green="0.8078432083" blue="0.27450981740000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="checkmark.square" catalog="system"/>
@@ -81,12 +91,21 @@
                                     <action selector="onRememberMeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ob9-22-loz"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENO-Fs-EfW">
                                 <rect key="frame" x="125" y="437.66666666666669" width="120" height="21"/>
+=======
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Remember me?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENO-Fs-EfW">
+                                <rect key="frame" x="125" y="514" width="120" height="21"/>
+>>>>>>> main
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.96862745289999996" green="0.8078432083" blue="0.27450981740000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="IMG_0157" translatesAutoresizingMaskIntoConstraints="NO" id="6M0-Jm-ME1">
+                                <rect key="frame" x="78" y="95" width="261" height="202"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -139,8 +158,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1CR-aG-wMA">
-                                <rect key="frame" x="79" y="325" width="256" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1CR-aG-wMA">
+                                <rect key="frame" x="79" y="382.99999999999989" width="256" height="34"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="VMD-cD-99r"/>
@@ -148,8 +167,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="given-name"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7N-F9-wkT">
-                                <rect key="frame" x="79" y="426" width="256" height="35"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7N-F9-wkT">
+                                <rect key="frame" x="79" y="483.99999999999989" width="256" height="35"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="BuC-sF-cA5"/>
@@ -158,8 +177,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="username"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qdS-XV-Eom">
-                                <rect key="frame" x="79" y="477" width="256" height="35"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qdS-XV-Eom">
+                                <rect key="frame" x="79" y="534.99999999999989" width="256" height="35"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Oyz-dw-TeT"/>
@@ -168,8 +187,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61L-MN-d9c">
-                                <rect key="frame" x="79" y="547" width="256" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61L-MN-d9c">
+                                <rect key="frame" x="79" y="604.99999999999989" width="256" height="36"/>
                                 <color key="backgroundColor" red="0.96862745289999996" green="0.8078432083" blue="0.27450981740000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="MJ6-Sp-Fhg"/>
@@ -188,8 +207,8 @@
                                     <action selector="onSignup:" destination="xfI-ak-I3M" eventType="touchUpInside" id="LUK-qQ-YdB"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HUy-Og-06Y">
-                                <rect key="frame" x="79" y="375" width="256" height="35"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HUy-Og-06Y">
+                                <rect key="frame" x="79" y="432.99999999999989" width="256" height="35"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="dc5-4s-Jkx"/>
@@ -198,8 +217,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="family-name"/>
                             </textField>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6St-qI-uTh">
-                                <rect key="frame" x="153" y="199" width="108" height="106.66666666666667"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="memerly_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="SOd-9B-lO5">
+                                <rect key="frame" x="79" y="152" width="256" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6St-qI-uTh">
+                                <rect key="frame" x="153" y="246" width="108" height="106.66666666666667"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -237,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VwM-jx-h9O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="412" y="90"/>
+            <point key="canvasLocation" x="411.59420289855075" y="89.732142857142847"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="qx0-hx-zoy">
@@ -989,9 +1012,14 @@
     <inferredMetricsTieBreakers>
         <segue reference="7p0-Eo-v6n"/>
         <segue reference="RLp-eC-abs"/>
+<<<<<<< HEAD
+=======
+        <segue reference="p6T-kR-gOA"/>
+>>>>>>> main
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Default Banner Image" width="7183" height="2584"/>
+        <image name="IMG_0157" width="951" height="1011"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="memerly_logo_white" width="789" height="181"/>
