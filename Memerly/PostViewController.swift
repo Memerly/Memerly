@@ -9,60 +9,59 @@ import UIKit
 import AlamofireImage
 import Parse
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
-{
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var memeImageView: UIImageView!
-    
     @IBOutlet weak var captionField: UITextField!
+	@IBOutlet weak var clearButton: UIButton!
+	@IBOutlet weak var postButton: UIButton!
+
     
     
-    
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+	   //forcing darkmode
+	    overrideUserInterfaceStyle = .dark
+
     }
-    
-    @IBAction func onPostButton(_ sender: Any)
-    {
-        let post = PFObject(className: "Posts")
-        
-        post["caption"] = captionField.text!
-        post["author"] = PFUser.current()!
-        
-        let imageData = memeImageView.image!.pngData()
-        let file = PFFileObject(name: "image.png", data: imageData!)
-        
-        post["image"] = file
-        
-        post.saveInBackground { (success,error) in
-            if(success)
-            {
-                self.performSegue(withIdentifier: "PostedSegue", sender: self)
-                print("saved!")
-            }
-            else
-            {
-                print("error!")
-            }
+
+    @IBAction func onPostButton(_ sender: Any) {
+	    if memeImageView.image != UIImage(systemName: "photo.artframe") {
+		   let post = PFObject(className: "Posts")
+
+		   post["caption"] = captionField.text!
+		   post["author"] = PFUser.current()!
+
+		   let imageData = memeImageView.image!.pngData()
+		   let file = PFFileObject(name: "image.png", data: imageData!)
+
+		   post["image"] = file
+
+		   post.saveInBackground { (success,error) in
+			  if(success) {
+                  self.dismiss(animated: true) {
+                      print("saved!")
+                  }
+				 
+			  }
+			  else {
+				 print("error!")
+			  }
+		   }
         }
     }
     
-    
-    @IBAction func onCameraButton(_ sender: Any)
-    {
+    @IBAction func onCameraButton(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
         
-        if UIImagePickerController.isSourceTypeAvailable(.camera)
-        {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
             picker.sourceType = .camera
         }
-        else
-        {
+        else {
             picker.sourceType = .photoLibrary
         }
         
@@ -70,17 +69,29 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
-    {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.editedImage] as! UIImage
         
         let size = CGSize(width: 300, height: 300)
-        let scaledImage = image.af_imageAspectScaled(toFill: size)
+	    let scaledImage = image.af.imageAspectScaled(toFill: size)
         
         memeImageView.image = scaledImage
-        
+	    clearButton.isHidden = false
+	    postButton.isHidden = false
         dismiss(animated: true, completion: nil)
     }
+
+	@IBAction func onClearButton(_ sender: Any) {
+		if memeImageView.image != UIImage(systemName: "photo.artframe") {
+			memeImageView.image = UIImage(systemName: "photo.artframe")
+			memeImageView.tintColor = UIColor.tertiarySystemGroupedBackground
+			memeImageView.contentMode = .scaleAspectFit
+			clearButton.isHidden = true
+			postButton.isHidden = true
+		} else {
+			clearButton.isHidden = false
+		}
+	}
     
     /*
     // MARK: - Navigation
