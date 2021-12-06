@@ -31,29 +31,6 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
 		postsCollectionView.delegate = self
 		postsCollectionView.dataSource = self
 
-		let username = user.username
-		if username != nil {
-			usernameLabel.textColor = UIColor.label
-			usernameLabel.text = username
-		} else {
-			usernameLabel.text = "UsernameNotFound"
-		}
-
-		let bio = user.object(forKey: "bio") as? String
-		if bio != nil {
-			bioTextView.textColor = UIColor.label
-			bioTextView.text = bio
-		} else {
-			bioTextView.textColor = UIColor.systemGray
-			bioTextView.text = "No Bio Set"
-		}
-		posts = posts.filter { post in
-			return post["author"] as! PFUser == user
-		}
-
-		if posts.count != 0 {
-			self.postsCollectionView.reloadData()
-		}
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
