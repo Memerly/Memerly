@@ -14,6 +14,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 	var currentUser = PFUser.current()!
 	var posts = [PFObject]()
 	let defaults = UserDefaults.standard
+	let defaultProfilePic = UIImage(systemName: "person.fill")?.withTintColor(UIColor.systemGray3)
+	let defaultBannerPic = UIImage(named: "Default Banner Image")
 
 	@IBOutlet weak var bannerPicImageView: UIImageView!
 	@IBOutlet weak var profilePicImageView: UIImageView!
@@ -33,9 +35,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 			//forcing darkmode
 		overrideUserInterfaceStyle = .dark
 
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
 		let username = currentUser["username"]
 		if username != nil {
-			usernameLabel.textColor = UIColor.label
 			usernameLabel.text = username as? String
 		} else {
 			usernameLabel.text = "UsernameNotFound"
@@ -53,22 +58,34 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 		let profilePicFile = currentUser["profilePic"]
 		if profilePicFile != nil {
 			let img = profilePicFile as! PFFileObject
-			let urlString = img.url!
-			let url = URL(string: urlString)!
-			profilePicImageView.af.setImage(withURL: url)
-			clearProfilePicButton.isHidden = false
-		} else {
+			if img.name.contains("defaultProfilePic.png") {
+				profilePicImageView.image = defaultProfilePic
+				clearProfilePicButton.isHidden = true
+			} else {
+				let urlString = img.url!
+				let url = URL(string: urlString)!
+				profilePicImageView.af.setImage(withURL: url)
+				clearProfilePicButton.isHidden = false
+			}
+		}
+		if profilePicFile == nil {
 			clearProfilePicButton.isHidden = true
 		}
 
 		let bannerPic = currentUser["bannerPic"]
 		if bannerPic != nil {
 			let img = bannerPic as! PFFileObject
-			let urlString = img.url!
-			let url = URL(string: urlString)!
-			bannerPicImageView.af.setImage(withURL: url)
-			clearBannerPicButton.isHidden = false
-		} else {
+			if img.name.contains("defaultBannerPic.png") {
+				bannerPicImageView.image = defaultBannerPic
+				clearBannerPicButton.isHidden = true
+			} else {
+				let urlString = img.url!
+				let url = URL(string: urlString)!
+				bannerPicImageView.af.setImage(withURL: url)
+				clearBannerPicButton.isHidden = false
+			}
+		}
+		if bannerPic == nil || bannerPicImageView.image == defaultBannerPic {
 			clearBannerPicButton.isHidden = true
 		}
 
@@ -82,6 +99,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 			rememberMeButton.alpha = 0.5
 		}
 
+		profilePicImageView.layer.masksToBounds = false
+		profilePicImageView.layer.cornerRadius = profilePicImageView.frame.height/2
+		profilePicImageView.layer.borderWidth = 1
+		profilePicImageView.layer.borderColor = UIColor.clear.cgColor
+		profilePicImageView.clipsToBounds = true
 	}
 
 	@IBAction func editProfilePic(_ sender: UIButton) {
@@ -118,14 +140,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 			activeImageView?.image = scaledImage
 		}
 
-
-
 		dismiss(animated: true, completion: nil)
 	}
 
 	@IBAction func onClearProfilePicButton(_ sender: Any) {
-		if profilePicImageView.image != UIImage(systemName: "person.fill") {
-			profilePicImageView.image = UIImage(systemName: "person.fill")
+		if profilePicImageView.image != defaultProfilePic {
+			profilePicImageView.image = defaultProfilePic
 			profilePicImageView.tintColor = UIColor.systemGray3
 			profilePicImageView.contentMode = .scaleAspectFit
 			clearProfilePicButton.isHidden = true
@@ -135,8 +155,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 	}
 	
 	@IBAction func onClearBannerPicButton(_ sender: Any) {
-		if bannerPicImageView.image != UIImage(named: "Default Banner Image") {
-			bannerPicImageView.image = UIImage(named: "Default Banner Image")
+		if bannerPicImageView.image != defaultBannerPic {
+			bannerPicImageView.image = defaultBannerPic
 			clearBannerPicButton.isHidden = true
 		} else {
 			clearBannerPicButton.isHidden = false
@@ -146,16 +166,22 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 	@IBAction func onDoneButton(_ sender: Any)  {
 		currentUser["bio"] = bioTextView.text
 
-		if profilePicImageView.image != UIImage(systemName: "person.fill") {
+		if profilePicImageView.image != defaultProfilePic {
 			let imageData = profilePicImageView.image!.pngData()
 			let file = PFFileObject(name: "profilePic.png", data: imageData!)
-
+			currentUser["profilePic"] = file
+		} else if profilePicImageView.image == defaultProfilePic {
+			let imageData = defaultProfilePic!.pngData()
+			let file = PFFileObject(name: "defaultProfilePic.png", data: imageData!)
 			currentUser["profilePic"] = file
 		}
-		if bannerPicImageView.image != UIImage(named: "Default Banner Image") {
+		if bannerPicImageView.image != defaultBannerPic {
 			let imageData = bannerPicImageView.image!.pngData()
 			let file = PFFileObject(name: "bannerPic.png", data: imageData!)
-
+			currentUser["bannerPic"] = file
+		} else if bannerPicImageView.image == defaultBannerPic {
+			let imageData = defaultBannerPic!.pngData()
+			let file = PFFileObject(name: "defaultBannerPic.png", data: imageData!)
 			currentUser["bannerPic"] = file
 		}
 		do {
@@ -164,10 +190,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 		} catch {
 			print(error)
 		}
+		self.navigationController?.popViewController(animated: true)
 	}
 
 
-	func addDoneButtonOnKeyboard(){
+	func addDoneButtonOnKeyboard() {
 		let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
 		doneToolbar.barStyle = .default
 

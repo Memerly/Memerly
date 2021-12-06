@@ -12,8 +12,10 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
 
 	var posts = [PFObject]()
 	var user:PFUser = PFUser()
+	let defaultProfilePic = UIImage(systemName: "person.fill")?.withTintColor(UIColor.systemGray3)
+	let defaultBannerPic = UIImage(named: "Default Banner Image")
 
-	@IBOutlet weak var bannerImageView: UIImageView!
+	@IBOutlet weak var bannerPicImageView: UIImageView!
 	@IBOutlet weak var profilePicImageView: UIImageView!
 	@IBOutlet weak var usernameLabel: UILabel!
 	@IBOutlet weak var bioTextView: UITextView!
@@ -45,8 +47,6 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
 			bioTextView.textColor = UIColor.systemGray
 			bioTextView.text = "No Bio Set"
 		}
-		print("viewDidAppear")
-		print(posts)
 		posts = posts.filter { post in
 			return post["author"] as! PFUser == user
 		}
@@ -56,8 +56,64 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
 		}
 	}
 
-	override func viewDidAppear(_ animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
 
+		let username = user["username"]
+		if username != nil {
+			usernameLabel.text = username as? String
+		} else {
+			usernameLabel.text = "UsernameNotFound"
+		}
+
+		let bio = user["bio"]
+		if bio != nil {
+			bioTextView.textColor = UIColor.label
+			bioTextView.text = bio as? String
+		} else {
+			bioTextView.textColor = UIColor.systemGray
+			bioTextView.text = "No Bio Set"
+		}
+
+		let profilePicFile = user["profilePic"]
+		if profilePicFile != nil {
+			let img = profilePicFile as! PFFileObject
+			if img.name == "defaultProfilePic.png" {
+				profilePicImageView.image = defaultProfilePic
+			} else {
+				let urlString = img.url!
+				let url = URL(string: urlString)!
+				profilePicImageView.af.setImage(withURL: url)
+			}
+		}
+
+
+		let bannerPic = user["bannerPic"]
+		if bannerPic != nil {
+			let img = bannerPic as! PFFileObject
+			if img.name == "defaultProfilePic.png" {
+				bannerPicImageView.image = defaultBannerPic
+			} else {
+				let urlString = img.url!
+				let url = URL(string: urlString)!
+				bannerPicImageView.af.setImage(withURL: url)
+			}
+		}
+
+		let query = PFQuery(className:"Posts")
+		query.whereKey("author", equalTo: user)
+		query.findObjectsInBackground { (posts, error) in
+			if posts != nil {
+				self.posts = posts!
+				self.postsCollectionView.reloadData()
+			}
+		}
+
+		profilePicImageView.layer.masksToBounds = false
+		profilePicImageView.layer.cornerRadius = profilePicImageView.frame.height/2
+		profilePicImageView.layer.borderWidth = 1
+		profilePicImageView.layer.borderColor = UIColor.clear.cgColor
+		profilePicImageView.clipsToBounds = true
 	}
 
 
