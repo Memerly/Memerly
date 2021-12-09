@@ -25,6 +25,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         tableView.delegate = self
         tableView.dataSource = self
+	    NotificationCenter.default.addObserver(self, selector: #selector(viewDidAppear), name: .kRefresh, object: nil)
 
         // pull to refresh
         myRefreshControl.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
@@ -48,17 +49,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-//	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//		let selectedPost = posts[indexPath.row]
-//		let selectedPoster = selectedPost["author"] as! PFUser
-//		print(selectedPost.objectId!)
-//
-//		if let viewController = storyboard?.instantiateViewController(identifier: "commentViewController") as? CommentViewController {
-//		    viewController.postID = selectedPost.objectId!
-//		    viewController.poster = selectedPoster
-//		    navigationController?.present(viewController, animated: true)
-//	    }
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -72,6 +62,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let user = post["author"] as! PFUser
 	    cell.usernameButton.setTitle(user.username, for: .normal)
 	    cell.usernameButton.tag = indexPath.row
+	    cell.heartButton.tag = indexPath.row
+	    cell.commentButton.tag = indexPath.row
         
 	    cell.captionLabel.text = post["caption"] as? String
         
@@ -92,6 +84,54 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 		    }
 	    }
 
+	    let commentCount = post["commentCount"] as? Int ?? 0
+	    if commentCount == 0 {
+		    cell.commentCountLabel.isHidden = true
+	    } else {
+		    cell.commentCountLabel.isHidden = false
+		    cell.commentCountLabel.text = String(describing: commentCount)
+	    }
+
+	    let likeCount = post["likedCount"] as? Int ?? 0
+	    if likeCount == 0 {
+		    cell.likeCountLabel.isHidden = true
+	    } else {
+		    cell.likeCountLabel.isHidden = false
+		    cell.likeCountLabel.text = String(describing: likeCount)
+	    }
+
+	    let commentedBy = post["commentedBy"] as? [PFUser]
+	    var isCommented = false
+	    if commentedBy != nil {
+		    for commentedBy in commentedBy! {
+			    if commentedBy.objectId! == PFUser.current()!.objectId! {
+				    isCommented = true
+				    break
+			    }
+		    }
+		    if isCommented {
+			    cell.commentButton.setImage(UIImage(systemName: "message.fill"), for: .normal)
+		    } else {
+			    cell.commentButton.setImage(UIImage(systemName: "message"), for: .normal)
+		    }
+
+	    }
+	    let likedBy = post["likedBy"] as? [PFUser]
+	    var isLiked = false
+	    if likedBy != nil {
+		    for likedBy in likedBy! {
+			    if likedBy.objectId! == PFUser.current()!.objectId! {
+				    isLiked = true
+				    break
+			    }
+		    }
+		    if isLiked {
+			    cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+		    } else {
+			    cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+		    }
+	    }
+
 	    cell.profilePicImageView.layer.masksToBounds = false
 	    cell.profilePicImageView.layer.cornerRadius = cell.profilePicImageView.frame.height/2
 	    cell.profilePicImageView.layer.borderWidth = 1
@@ -101,7 +141,42 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
 
-    // MARK: - Navigation
+	@IBAction func onLikeButton(_ sender: UIButton) {
+		let tag = sender.tag
+		let postID = posts[tag].objectId!
+		let query  = PFQuery(className: "Posts")
+		var isLiked = false
+		query.getObjectInBackground(withId: postID) { (post, error) in
+			if post != nil {
+				let likedBy = post!["likedBy"] as? [PFUser]
+				if likedBy != nil {
+					for liked in likedBy! {
+						if liked.objectId! == PFUser.current()!.objectId! {
+							isLiked = true
+							break
+						}
+						print(liked)
+					}
+					if isLiked {
+						let likeCount = post?["likedCount"] ?? 0
+						post?["likedCount"] = likeCount as! Int - 1
+						post?.remove(PFUser.current()!, forKey: "likedBy")
+					} else {
+						let likeCount = post?["likedCount"] ?? 0
+						post?["likedCount"] = likeCount as! Int + 1
+						post?.add(PFUser.current()!, forKey: "likedBy")
+					}
+					do {
+						let results: () = try post!.save()
+						print(results)
+					} catch {
+						print(error)
+					}
+				}
+			}
+		}
+	}
+		// MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -115,8 +190,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 			    vc.posts = posts
 		    }
 	    } else if let vc = segue.destination as? CommentViewController {
-
-		    let selectedPost = posts[tableView.indexPathForSelectedRow!.row]
+		    var selectedPost: PFObject
+		    if let button = sender as? UIButton {
+			    selectedPost = posts[button.tag]
+			    vc.sentBy = "Button"
+		    } else {
+			    selectedPost = posts[tableView.indexPathForSelectedRow!.row]
+			    vc.sentBy = "Table"
+		    }
 		    let selectedPoster = selectedPost["author"] as! PFUser
 		    let imageFile = selectedPost["image"] as! PFFileObject
 		    let urlString = imageFile.url!
@@ -128,4 +209,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 	    }
     }
+}
+extension Notification.Name {
+	public static let kRefresh = Notification.Name("refresh")
 }

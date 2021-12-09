@@ -17,7 +17,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 	var poster:PFUser = PFUser()
 	var postURLString = String()
 	var post: PFObject?
-//	let myRefreshControl = UIRefreshControl() // pull to refresh
+	var sentBy = String()
+	let myRefreshControl = UIRefreshControl() // pull to refresh
 
 	let defaultProfilePic = UIImage(systemName: "person.fill")?.withTintColor(UIColor.systemGray3)
 
@@ -41,9 +42,12 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 		commentsTableView.delegate = self
 		commentsTableView.dataSource = self
 
-//		myRefreshControl.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
-//		commentsTableView.refreshControl = myRefreshControl
-//		self.commentsTableView.rowHeight = UITableView.automaticDimension
+		myRefreshControl.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
+		commentsTableView.refreshControl = myRefreshControl
+		self.commentsTableView.rowHeight = UITableView.automaticDimension
+		if self.sentBy == "Button" {
+			self.commentTextView.becomeFirstResponder()
+		}
     }
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
@@ -116,7 +120,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 		query.findObjectsInBackground { (comments, error) in
 			if comments != nil {
-				print(comments)
 				self.comments = comments!
 				if self.comments.count > 0 {
 					self.noCommentsLabel.isHidden = true
@@ -180,6 +183,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 					comment["post"] = post!
 					comment["comment"] = self.commentTextView.text!
 					comment["author"] = PFUser.current()!
+					post?.incrementKey("commentCount")
+					post?.add(self.currentUser, forKey: "commentedBy")
 
 					do {
 						let results: () = try comment.save()
@@ -187,14 +192,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 					} catch {
 						print(error)
 					}
-//					comment.saveInBackground { (success,error) in
-//						if success {
-//							self.commentsTableView.reloadData()
-//							print("saved!")
-//						} else {
-//							print("error! \(String(describing: error))")
-//						}
-//					}
 				} else {
 					print("error! \(String(describing: error))")
 				}
