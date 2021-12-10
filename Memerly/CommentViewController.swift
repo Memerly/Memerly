@@ -45,10 +45,12 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 		myRefreshControl.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
 		commentsTableView.refreshControl = myRefreshControl
 		self.commentsTableView.rowHeight = UITableView.automaticDimension
+
 		if self.sentBy == "Button" {
 			self.commentTextView.becomeFirstResponder()
 		}
     }
+
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
 
@@ -110,9 +112,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 	}
 	override func viewDidAppear(_ animated: Bool) {
-		print(postID)
-		print(poster)
-		let query  = PFQuery(className: "Comments")
+		let query = PFQuery(className: "Comments")
 		query.includeKey("author")
 		query.whereKey("post", equalTo: post!)
 		query.order(byDescending: "createdAt")
@@ -124,16 +124,11 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 				if self.comments.count > 0 {
 					self.noCommentsLabel.isHidden = true
 					self.commentsTableView.isHidden = false
-
 				}
 				self.commentsTableView.reloadData()
-//				self.myRefreshControl.endRefreshing() //pull to refresh
+				self.myRefreshControl.endRefreshing() //pull to refresh
 			}
 		}
-		
-		
-		print(comments)
-
 	}
 	
 	
@@ -178,30 +173,42 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 			let comment = PFObject(className: "Comments")
 			let query  = PFQuery(className: "Posts")
 
-			query.getObjectInBackground(withId: postID) { (post, error) in
+			query.getObjectInBackground(withId: postID) {
+				(post, error) -> Void in
 				if post != nil {
 					comment["post"] = post!
 					comment["comment"] = self.commentTextView.text!
 					comment["author"] = PFUser.current()!
 					post?.incrementKey("commentCount")
 					post?.add(self.currentUser, forKey: "commentedBy")
-
+//					post?.saveInBackground()
 					do {
 						let results: () = try comment.save()
+						let query = PFQuery(className: "Comments")
+						query.includeKey("author")
+						query.whereKey("post", equalTo: post!)
+						query.order(byDescending: "createdAt")
+						query.limit = 20
+
+						query.findObjectsInBackground { (comments, error) in
+							if comments != nil {
+								self.comments = comments!
+								if self.comments.count > 0 {
+									self.noCommentsLabel.isHidden = true
+									self.commentsTableView.isHidden = false
+								}
+								self.commentsTableView.reloadData()
+								self.myRefreshControl.endRefreshing() //pull to refresh
+							}
+						}
 						print(results)
 					} catch {
 						print(error)
 					}
-				} else {
+				} else if error != nil {
 					print("error! \(String(describing: error))")
 				}
 			}
-
-		}
-
-
-		DispatchQueue.main.async{
-			self.commentsTableView.reloadData()
 		}
 	}
     

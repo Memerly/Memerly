@@ -158,10 +158,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 						print(liked)
 					}
 					if isLiked {
+						sender.setImage(UIImage(systemName: "heart"), for: .normal)
 						let likeCount = post?["likedCount"] ?? 0
 						post?["likedCount"] = likeCount as! Int - 1
 						post?.remove(PFUser.current()!, forKey: "likedBy")
 					} else {
+						sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
 						let likeCount = post?["likedCount"] ?? 0
 						post?["likedCount"] = likeCount as! Int + 1
 						post?.add(PFUser.current()!, forKey: "likedBy")
