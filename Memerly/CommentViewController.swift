@@ -8,6 +8,7 @@
 import UIKit
 import Parse
 import AlamofireImage
+import CryptoKit
 
 class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -30,6 +31,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 	@IBOutlet weak var commentTextView: UITextView!
 	@IBOutlet weak var commentsTableView: UITableView!
 	@IBOutlet weak var postCommentButton: UIButton!
+	@IBOutlet weak var deletePostButton: UIButton!
 	@IBOutlet weak var noCommentsLabel: UILabel!
 
 	override func viewDidLoad() {
@@ -53,9 +55,13 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-
+		deletePostButton.isHidden = true
 		noCommentsLabel.isHidden = false
 		commentsTableView.isHidden = true
+
+		if poster.objectId == PFUser.current()!.objectId {
+			deletePostButton.isHidden = false
+		}
 
 		let username = poster["username"]
 		if username != nil {
@@ -114,23 +120,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		let query = PFQuery(className: "Comments")
-		query.includeKey("author")
-		query.whereKey("post", equalTo: post!)
-		query.order(byDescending: "createdAt")
-		query.limit = 20
-
-		query.findObjectsInBackground { (comments, error) in
-			if comments != nil {
-				self.comments = comments!
-				if self.comments.count > 0 {
-					self.noCommentsLabel.isHidden = true
-					self.commentsTableView.isHidden = false
-				}
-				self.commentsTableView.reloadData()
-				self.myRefreshControl.endRefreshing() //pull to refresh
-			}
-		}
+		self.refreshComments()
 	}
 
 	func refreshComments() {
@@ -169,13 +159,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 				for Ids in commentedByArray {
 					IdArray.append(Ids.objectId!)
 				}
-				print(commentedByArray)
-				print(self.currentUser)
 				if let index = IdArray.firstIndex(of: self.currentUser.objectId!) {
-					print(index)
 					commentedByArray.remove(at: index)
 				}
-				print(commentedByArray)
 				post?["commentedBy"] = commentedByArray
 				do {
 					let results: ()? = try post?.save()
@@ -229,8 +215,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 			}
 		}
 
-		print(user, PFUser.current()!)
-
 		if user.objectId == PFUser.current()!.objectId {
 			cell.deleteButton.isHidden = false
 		}
@@ -261,23 +245,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 					post?.add(self.currentUser, forKey: "commentedBy")
 					do {
 						let results: () = try comment.save()
-						let query = PFQuery(className: "Comments")
-						query.includeKey("author")
-						query.whereKey("post", equalTo: post!)
-						query.order(byDescending: "createdAt")
-						query.limit = 20
-
-						query.findObjectsInBackground { (comments, error) in
-							if comments != nil {
-								self.comments = comments!
-								if self.comments.count > 0 {
-									self.noCommentsLabel.isHidden = true
-									self.commentsTableView.isHidden = false
-								}
-								self.commentsTableView.reloadData()
-								self.myRefreshControl.endRefreshing() //pull to refresh
-							}
-						}
+						self.refreshComments()
 						print(results)
 					} catch {
 						print(error)
@@ -289,15 +257,87 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 		}
 	}
     
+	@IBAction func onDeletePostButton(_ sender: UIButton) {
+			// Declare Alert message
+		let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to delete this post?", preferredStyle: .alert)
 
-    /*
+			// Create OK button with action handler
+		let ok = UIAlertAction(title: "Delete it!", style: .default, handler: { (action) -> Void in
+			print("Delete button tapped")
+			self.deletePost()
+		})
+
+			// Create Cancel button with action handlder
+		let cancel = UIAlertAction(title: "Nevermind!", style: .cancel) { (action) -> Void in
+			print("Cancel button tapped")
+		}
+
+			//Add OK and Cancel button to dialog message
+		dialogMessage.addAction(ok)
+		dialogMessage.addAction(cancel)
+
+			// Present dialog message to user
+		ok.setValue(UIColor.systemRed, forKey: "titleTextColor")
+		self.present(dialogMessage, animated: true, completion: nil)
+	}
+
+	func deletePost() {
+
+		for comment in comments {
+			let id = comment.objectId!
+			let query = PFQuery(className:"Comments")
+
+			query.getObjectInBackground(withId: id) {
+				(comment, error) -> Void in
+				if error != nil {
+					print("error! \(String(describing: error))")
+				} else if comment != nil {
+					do {
+						let results: ()? = try comment?.delete()
+						print(results!)
+					} catch {
+						print(error)
+					}
+				}
+			}
+		}
+
+		let query  = PFQuery(className: "Posts")
+
+		query.getObjectInBackground(withId: postID) {
+			(post, error) -> Void in
+			if error != nil {
+				print("error! \(String(describing: error))")
+			} else if post != nil {
+				do {
+					let results: ()? = try post?.delete()
+					print(results!)
+				} catch {
+					print(error)
+				}
+			}
+		}
+	}
+
+
+
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+	    print(segue)
     }
-    */
 
+
+}
+
+extension Collection where Element: Equatable {
+	func indices(of element: Element) -> [Index] { indices.filter { self[$0] == element } }
+}
+
+extension Collection {
+	func indices(where isIncluded: (Element) throws -> Bool) rethrows -> [Index] { try indices.filter { try isIncluded(self[$0]) } }
 }

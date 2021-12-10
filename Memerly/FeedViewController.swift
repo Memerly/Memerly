@@ -25,7 +25,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         tableView.delegate = self
         tableView.dataSource = self
-	    NotificationCenter.default.addObserver(self, selector: #selector(viewDidAppear), name: .kRefresh, object: nil)
 
         // pull to refresh
         myRefreshControl.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
@@ -211,7 +210,4 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 	    }
     }
-}
-extension Notification.Name {
-	public static let kRefresh = Notification.Name("refresh")
 }
