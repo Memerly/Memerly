@@ -30,6 +30,7 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
 
 		postsCollectionView.delegate = self
 		postsCollectionView.dataSource = self
+		
 
 	}
 

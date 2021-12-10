@@ -111,7 +111,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 		}
 
 	}
+
 	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
 		let query = PFQuery(className: "Comments")
 		query.includeKey("author")
 		query.whereKey("post", equalTo: post!)
@@ -131,7 +133,63 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 		}
 	}
 	
-	
+	@IBAction func onDeleteButton(_ sender: UIButton) {
+		let query = PFQuery(className:"Posts")
+
+		let commentId:String = comments[sender.tag].objectId!
+
+		query.getObjectInBackground(withId: postID) {
+			(post, error) -> Void in
+			if post != nil {
+				let commentCount = post?["commentCount"] ?? 0
+				post?["commentCount"] = commentCount as! Int - 1
+
+				var commentedByArray = post?["commentedBy"] as! [PFUser]
+				if let index = commentedByArray.firstIndex(of: self.currentUser) {
+					commentedByArray.remove(at: index)
+				}
+				post?["commentedBy"] = commentedByArray
+				do {
+					let results: ()? = try post?.save()
+					let query = PFQuery(className:"Comments")
+					query.getObjectInBackground(withId: commentId) {
+						(comment, error) -> Void in
+						if error != nil {
+							print(error!)
+						} else if comment != nil {
+							do {
+								let results: ()? = try comment?.delete()
+								let query = PFQuery(className: "Comments")
+								query.includeKey("author")
+								query.whereKey("post", equalTo: self.post!)
+								query.order(byDescending: "createdAt")
+								query.limit = 20
+
+								query.findObjectsInBackground { (comments, error) in
+									if comments != nil {
+										self.comments = comments!
+										if self.comments.count > 0 {
+											self.noCommentsLabel.isHidden = true
+											self.commentsTableView.isHidden = false
+										}
+										self.commentsTableView.reloadData()
+										self.myRefreshControl.endRefreshing() //pull to refresh
+									}
+								}
+								print(results!)
+							} catch {
+								print(error)
+							}
+						}
+					}
+					print(results!)
+				} catch {
+					print(error)
+				}
+			}
+		}
+	}
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		comments.count
 	}
@@ -140,10 +198,12 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 		let cell = tableView.dequeueReusableCell(withIdentifier: "commentsTableViewCell") as! CommentsTableViewCell
 
 		let comment = comments[indexPath.row]
+		cell.deleteButton.isHidden = true
 
 		let user = comment["author"] as! PFUser
 		cell.usernameButton.setTitle(user.username, for: .normal)
 		cell.usernameButton.tag = indexPath.row
+		cell.deleteButton.tag = indexPath.row
 
 		let profilePicFile = user["profilePic"]
 		if profilePicFile != nil {
@@ -155,6 +215,12 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 				let url = URL(string: urlString)!
 				cell.profilePicImageView.af.setImage(withURL: url)
 			}
+		}
+
+		print(user, PFUser.current()!)
+
+		if user.objectId == PFUser.current()!.objectId {
+			cell.deleteButton.isHidden = false
 		}
 
 		cell.profilePicImageView.layer.masksToBounds = false
@@ -181,7 +247,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 					comment["author"] = PFUser.current()!
 					post?.incrementKey("commentCount")
 					post?.add(self.currentUser, forKey: "commentedBy")
-//					post?.saveInBackground()
 					do {
 						let results: () = try comment.save()
 						let query = PFQuery(className: "Comments")
