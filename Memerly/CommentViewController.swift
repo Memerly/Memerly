@@ -132,6 +132,26 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 			}
 		}
 	}
+
+	func refreshComments() {
+		let query = PFQuery(className: "Comments")
+		query.includeKey("author")
+		query.whereKey("post", equalTo: self.post!)
+		query.order(byDescending: "createdAt")
+		query.limit = 20
+
+		query.findObjectsInBackground { (comments, error) in
+			if comments != nil {
+				self.comments = comments!
+				if self.comments.count > 0 {
+					self.noCommentsLabel.isHidden = true
+					self.commentsTableView.isHidden = false
+				}
+				self.commentsTableView.reloadData()
+				self.myRefreshControl.endRefreshing() //pull to refresh
+			}
+		}
+	}
 	
 	@IBAction func onDeleteButton(_ sender: UIButton) {
 		let query = PFQuery(className:"Posts")
@@ -145,9 +165,17 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 				post?["commentCount"] = commentCount as! Int - 1
 
 				var commentedByArray = post?["commentedBy"] as! [PFUser]
-				if let index = commentedByArray.firstIndex(of: self.currentUser) {
+				var IdArray = [String]()
+				for Ids in commentedByArray {
+					IdArray.append(Ids.objectId!)
+				}
+				print(commentedByArray)
+				print(self.currentUser)
+				if let index = IdArray.firstIndex(of: self.currentUser.objectId!) {
+					print(index)
 					commentedByArray.remove(at: index)
 				}
+				print(commentedByArray)
 				post?["commentedBy"] = commentedByArray
 				do {
 					let results: ()? = try post?.save()
@@ -159,23 +187,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 						} else if comment != nil {
 							do {
 								let results: ()? = try comment?.delete()
-								let query = PFQuery(className: "Comments")
-								query.includeKey("author")
-								query.whereKey("post", equalTo: self.post!)
-								query.order(byDescending: "createdAt")
-								query.limit = 20
-
-								query.findObjectsInBackground { (comments, error) in
-									if comments != nil {
-										self.comments = comments!
-										if self.comments.count > 0 {
-											self.noCommentsLabel.isHidden = true
-											self.commentsTableView.isHidden = false
-										}
-										self.commentsTableView.reloadData()
-										self.myRefreshControl.endRefreshing() //pull to refresh
-									}
-								}
+								self.refreshComments()
 								print(results!)
 							} catch {
 								print(error)
