@@ -9,8 +9,9 @@ import UIKit
 import Parse
 import AlamofireImage
 
-class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CommentViewControllerDelegate {
+
     @IBOutlet weak var tableView: UITableView!
 	let defaultProfilePic = UIImage(systemName: "person.fill")?.withTintColor(UIColor.systemGray3)
     
@@ -34,19 +35,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        let query  = PFQuery(className: "Posts")
-        query.includeKey("author")
-	    query.order(byDescending: "createdAt")
-        query.limit = 20
-        
-        query.findObjectsInBackground { (posts, error) in
-            if posts != nil {
-                self.posts = posts!
-                self.tableView.reloadData()
-                self.myRefreshControl.endRefreshing() //pull to refresh
-            }
-        }
+	    refreshPosts()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -177,12 +166,56 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 			}
 		}
 	}
+
+	func refreshPosts() {
+		let query  = PFQuery(className: "Posts")
+		query.includeKey("author")
+		query.order(byDescending: "createdAt")
+		query.limit = 20
+
+		query.findObjectsInBackground {
+			(posts, error) in
+			if posts != nil {
+				self.posts = posts!
+				self.tableView.reloadData()
+				self.myRefreshControl.endRefreshing() //pull to refresh
+			}
+		}
+	}
+
 		// MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+	    print(segue.destination)
+	    switch segue.identifier {
+		    case "commentView":
+			    let navigationController = segue.destination as! UINavigationController
+			    let commentViewController = navigationController.topViewController as! CommentViewController
+
+			    navigationController.presentationController?.delegate = commentViewController
+
+			    commentViewController.delegate = self
+			    var selectedPost: PFObject
+			    if let button = sender as? UIButton {
+				    selectedPost = posts[button.tag]
+				    commentViewController.sentBy = "Button"
+			    } else {
+				    selectedPost = posts[tableView.indexPathForSelectedRow!.row]
+				    commentViewController.sentBy = "Table"
+			    }
+			    let selectedPoster = selectedPost["author"] as! PFUser
+			    let imageFile = selectedPost["image"] as! PFFileObject
+			    let urlString = imageFile.url!
+
+			    commentViewController.postURLString = urlString
+			    commentViewController.postID = selectedPost.objectId!
+			    commentViewController.poster = selectedPoster
+			    commentViewController.post = selectedPost
+
+		    default:
+			    break
+	    }
 	    if let vc = segue.destination as? OtherProfileViewController {
 		    if let button = sender as? UIButton {
 			    let index = button.tag
@@ -190,24 +223,16 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 			    vc.user = post["author"] as! PFUser
 			    vc.posts = posts
 		    }
-	    } else if let vc = segue.destination as? CommentViewController {
-		    var selectedPost: PFObject
-		    if let button = sender as? UIButton {
-			    selectedPost = posts[button.tag]
-			    vc.sentBy = "Button"
-		    } else {
-			    selectedPost = posts[tableView.indexPathForSelectedRow!.row]
-			    vc.sentBy = "Table"
-		    }
-		    let selectedPoster = selectedPost["author"] as! PFUser
-		    let imageFile = selectedPost["image"] as! PFFileObject
-		    let urlString = imageFile.url!
-
-		    vc.postURLString = urlString
-		    vc.postID = selectedPost.objectId!
-		    vc.poster = selectedPoster
-		    vc.post = selectedPost
-
 	    }
     }
+
+	func CommentViewControllerDidCancel(_ commentViewController: CommentViewController) {
+		dismiss(animated: true, completion: nil)
+	}
+
+	func CommentViewControllerDidFinish(_ commentViewController: CommentViewController) {
+		posts = commentViewController.posts
+		tableView.reloadData()
+		dismiss(animated: true, completion: nil)
+	}
 }

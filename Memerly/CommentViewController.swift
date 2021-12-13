@@ -8,9 +8,14 @@
 import UIKit
 import Parse
 import AlamofireImage
-import CryptoKit
 
-class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol CommentViewControllerDelegate: AnyObject {
+
+	func CommentViewControllerDidCancel(_ commentViewController: CommentViewController)
+	func CommentViewControllerDidFinish(_ commentViewController: CommentViewController)
+}
+
+class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDelegate {
 
 	let currentUser = PFUser.current()!
 	var comments = [PFObject]()
@@ -20,6 +25,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 	var post: PFObject?
 	var sentBy = String()
 	let myRefreshControl = UIRefreshControl() // pull to refresh
+	var posts = [PFObject]()
+	weak var delegate: CommentViewControllerDelegate?
 
 	let defaultProfilePic = UIImage(systemName: "person.fill")?.withTintColor(UIColor.systemGray3)
 
@@ -34,15 +41,19 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 	@IBOutlet weak var deletePostButton: UIButton!
 	@IBOutlet weak var noCommentsLabel: UILabel!
 
+
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
+		commentsTableView.delegate = self
+		commentsTableView.dataSource = self
+
+		isModalInPresentation = true
 
 			//forcing darkmode
 		overrideUserInterfaceStyle = .dark
 		
         // Do any additional setup after loading the view.
-		commentsTableView.delegate = self
-		commentsTableView.dataSource = self
+
 
 		myRefreshControl.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
 		commentsTableView.refreshControl = myRefreshControl
@@ -116,6 +127,25 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 			}
 		}
 
+	}
+
+
+		// MARK: - UIAdaptivePresentationControllerDelegate
+
+	func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+
+		let query  = PFQuery(className: "Posts")
+		query.includeKey("author")
+		query.order(byDescending: "createdAt")
+		query.limit = 20
+		do {
+			let results: [PFObject] = try query.findObjects()
+			self.posts = results
+			print("I hate everything")
+		} catch {
+			print(error)
+		}
+		delegate?.CommentViewControllerDidFinish(self)
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -282,7 +312,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 	}
 
 	func deletePost() {
-
 		for comment in comments {
 			let id = comment.objectId!
 			let query = PFQuery(className:"Comments")
@@ -312,6 +341,18 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 				do {
 					let results: ()? = try post?.delete()
 					print(results!)
+					let query  = PFQuery(className: "Posts")
+					query.includeKey("author")
+					query.order(byDescending: "createdAt")
+					query.limit = 20
+					do {
+						let results: [PFObject] = try query.findObjects()
+						self.posts = results
+						print("I hate everything")
+					} catch {
+						print(error)
+					}
+					self.delegate?.CommentViewControllerDidFinish(self)
 				} catch {
 					print(error)
 				}
