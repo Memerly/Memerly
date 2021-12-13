@@ -9,7 +9,7 @@ import UIKit
 import AlamofireImage
 import Parse
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MemeViewControllerDelegate {
 
     @IBOutlet weak var memeImageView: UIImageView!
     @IBOutlet weak var captionField: UITextField!
@@ -92,15 +92,38 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 			clearButton.isHidden = false
 		}
 	}
-    
-    /*
+	func MemeViewControllerDidCancel(_ memeViewController: MemeViewController) {
+		dismiss(animated: true, completion: nil)
+	}
+
+	func MemeViewControllerDidFinish(_ memeViewController: MemeViewController) { let size = CGSize(width: 300, height: 300)
+		let scaledImage = memeViewController.memeImageView.image?.af.imageAspectScaled(toFill: size)
+
+		memeImageView.image = scaledImage
+		clearButton.isHidden = false
+		postButton.isHidden = false
+//		memeImageView.image = memeViewController.memeImageView.image
+		dismiss(animated: true, completion: nil)
+	}
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+	    switch segue.identifier {
+		    case "memeView":
+			    let navigationController = segue.destination as! UINavigationController
+			    let memeViewController = navigationController.topViewController as! MemeViewController
+
+			    navigationController.presentationController?.delegate = memeViewController
+
+			    memeViewController.delegate = self
+		    default:
+			    break
+	    }
     }
-    */
+
 
 }

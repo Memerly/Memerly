@@ -16,6 +16,15 @@ struct Meme: Decodable {
 	let url : String
 	let width : Int
 
+	init() {
+		box_count = 0
+		height = 0
+		id = ""
+		name = ""
+		url = ""
+		width = 0
+	}
+
 	enum CodingKeys: String, CodingKey {
 		case box_count = "box_count"
 		case height = "height"

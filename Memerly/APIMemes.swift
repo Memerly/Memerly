@@ -1,5 +1,5 @@
 //
-//  Response.swift
+//  APIMeme.swift
 //  Memerly
 //
 //  Created by Jarod Wellinghoff on 12/13/21.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Response: Decodable {
+struct APIMemes: Decodable {
 	let success : Bool
-	let data : [String : [Meme]]
+	let data : APIMeme
 
 	enum CodingKeys: String, CodingKey {
 		case success = "success"
