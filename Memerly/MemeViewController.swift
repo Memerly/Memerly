@@ -27,15 +27,21 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
 	@IBOutlet weak var memeImageView: UIImageView!
 	@IBOutlet weak var textBoxTableView: UITableView!
-	@IBOutlet weak var memePickerView: UIPickerView!
-
+	var memePickerView = UIPickerView()
+    @IBOutlet weak var memPickerButton: UIButton!
+    @IBOutlet weak var captionTextField: UITextField!
+    
+    let screenWidth = UIScreen.main.bounds.width - 10
+    let screenHeight = UIScreen.main.bounds.height / 2
+    var selectedRow = 0
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		memePickerView.delegate = self
 		textBoxTableView.delegate = self
 		memePickerView.dataSource = self
 		textBoxTableView.dataSource = self
-		isModalInPresentation = true
+		//isModalInPresentation = true
 		overrideUserInterfaceStyle = .dark
 
 		getMemes()
@@ -69,7 +75,49 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 		}
 	}
 
-	func numberOfComponents(in pickerView: UIPickerView) -> Int {
+	
+    @IBAction func memePickerButton(_ sender: UIButton) {
+        let vc = UIViewController()
+        vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
+        vc.overrideUserInterfaceStyle = .dark
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height:screenHeight))
+        
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        
+        pickerView.selectRow(selectedRow, inComponent: 0, animated: false)
+        
+        vc.view.addSubview(pickerView)
+        pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
+        pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
+                
+        let alert = UIAlertController(title: "Pick a meme...", message: "", preferredStyle: .actionSheet)
+                
+        alert.popoverPresentationController?.sourceView = memPickerButton
+        alert.popoverPresentationController?.sourceRect = memPickerButton.bounds
+        
+        alert.overrideUserInterfaceStyle = .dark
+                
+        alert.setValue(vc, forKey: "contentViewController")
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
+        }))
+                
+        alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (UIAlertAction) in
+            self.selectedRow = pickerView.selectedRow(inComponent: 0)
+            //self.selectedRowTextColor = pickerView.selectedRow(inComponent: 1)
+            let selected = self.selectedMeme
+            //let selectedTextColor = Array(self.backGroundColours)[self.selectedRowTextColor]
+            let name = selected.name
+            //self.memPickerButton.setTitle(name, for: .normal)
+            //self.pickerViewButton.setTitleColor(selectedTextColor.value, for: .normal)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		1
 	}
 
