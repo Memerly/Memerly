@@ -15,17 +15,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="IMG_0157" translatesAutoresizingMaskIntoConstraints="NO" id="bhY-fB-BEN">
-                                <rect key="frame" x="64" y="99" width="287" height="325"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="memerly_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="5O6-vC-N9F">
+                                <rect key="frame" x="63.5" y="441" width="287" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="287" id="7h3-Yy-Ogp"/>
+                                    <constraint firstAttribute="height" constant="69" id="uDd-Gc-YvX"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="memerly_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="5O6-vC-N9F">
-                                <rect key="frame" x="64" y="432" width="287" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="akb-JZ-QEe">
+                                <rect key="frame" x="50.5" y="113" width="313" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="313" id="QLs-xa-rMB"/>
+                                    <constraint firstAttribute="height" constant="320" id="TYp-92-8Ir"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5O6-vC-N9F" firstAttribute="top" secondItem="akb-JZ-QEe" secondAttribute="bottom" constant="8" id="BRw-TY-3DB"/>
+                            <constraint firstItem="5O6-vC-N9F" firstAttribute="centerX" secondItem="akb-JZ-QEe" secondAttribute="centerX" id="Zs6-wq-3bp"/>
+                            <constraint firstItem="5O6-vC-N9F" firstAttribute="top" secondItem="akb-JZ-QEe" secondAttribute="bottom" constant="8" id="dPw-J2-8KS"/>
+                            <constraint firstItem="5O6-vC-N9F" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dad-C7-KaQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5O6-vC-N9F" secondAttribute="bottom" constant="352" id="nyQ-X4-jAm"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -34,7 +47,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IMG_0157" width="951" height="1011"/>
+        <image name="Image-1" width="951" height="1011"/>
         <image name="memerly_logo_white" width="789" height="181"/>
     </resources>
 </document>
