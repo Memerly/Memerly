@@ -141,27 +141,33 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
 	@IBAction func onLikeButton(_ sender: UIButton) {
+		print("something")
 		let tag = sender.tag
 		let postID = posts[tag].objectId!
 		let query  = PFQuery(className: "Posts")
 		var isLiked = false
 		query.getObjectInBackground(withId: postID) { (post, error) in
 			if post != nil {
+				print("post != nil")
 				let likedBy = post!["likedBy"] as? [PFUser]
 				if likedBy != nil {
+					print("likedby != nil")
 					for liked in likedBy! {
 						if liked.objectId! == PFUser.current()!.objectId! {
 							isLiked = true
+							print("isLiked = true")
 							break
 						}
 						print(liked)
 					}
 					if isLiked {
+						print("isLiked = true")
 						sender.setImage(UIImage(systemName: "heart"), for: .normal)
 						let likeCount = post?["likedCount"] ?? 0
 						post?["likedCount"] = likeCount as! Int - 1
 						post?.remove(PFUser.current()!, forKey: "likedBy")
-					} else {
+					} else if !isLiked {
+						print("isliked = false")
 						sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
 						let likeCount = post?["likedCount"] ?? 0
 						post?["likedCount"] = likeCount as! Int + 1
@@ -173,7 +179,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 					} catch {
 						print(error)
 					}
+				} else {
+					print("liked = nil")
 				}
+			}
+			else {
+				print("post = nil")
 			}
 		}
 	}

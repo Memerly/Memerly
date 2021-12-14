@@ -33,6 +33,11 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
 		   post["caption"] = captionField.text!
 		   post["author"] = PFUser.current()!
+		    post["comments"] = []
+		    post["commentCount"] = 0
+		    post["commentedBy"] = []
+		    post["likedCount"] = 0
+		    post["likedBy"] = []
 
 		   let imageData = memeImageView.image!.pngData()
 		   let file = PFFileObject(name: "image.png", data: imageData!)
