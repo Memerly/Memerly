@@ -45,8 +45,8 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		let meme = memes[0]
-		let urlString = meme.url
+//		let meme = memes[0]
+		let urlString = selectedMeme.url
 		let url = URL(string: urlString)!
 
 		memeImageView.af.setImage(withURL: url)

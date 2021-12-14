@@ -440,7 +440,6 @@
                                         <size key="customSize" width="124" height="123"/>
                                         <connections>
                                             <outlet property="memeImageView" destination="LmZ-Do-tew" id="I0u-iU-7bB"/>
-                                            <segue destination="YND-kt-6Ut" kind="presentation" id="oB8-jR-fV9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -983,7 +982,6 @@
                                         <size key="customSize" width="124" height="123"/>
                                         <connections>
                                             <outlet property="memeImageView" destination="jcO-Rl-Kse" id="FuY-hs-xn5"/>
-                                            <segue destination="YND-kt-6Ut" kind="presentation" id="7p0-Eo-v6n"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
