@@ -627,8 +627,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="Eqi-6A-O1q">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="eBO-ZX-e4E">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="fQC-y5-IVh">
+                        <barButtonItem key="rightBarButtonItem" title="item" style="plain" id="eBO-ZX-e4E">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="fQC-y5-IVh">
                                 <rect key="frame" x="319" y="0.0" width="75" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.91566675900000005" green="0.1249252185" blue="0.32388097049999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -638,9 +638,11 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="onLogoutButton:" destination="RLN-UC-2DI" eventType="touchUpInside" id="YeM-HD-pdk"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="PFk-z7-c7X"/>
                                 </connections>
                             </button>
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="logout" id="1Hs-yv-XLb"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -678,6 +680,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="dark" navigationBarHidden="YES" id="Nzi-sk-fNU" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="D9I-P5-GEu"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="f2H-r1-b5x">
                         <autoresizingMask key="autoresizingMask"/>
@@ -1385,9 +1388,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7p0-Eo-v6n"/>
+        <segue reference="q4V-Bv-9a3"/>
         <segue reference="sDt-5f-alF"/>
-        <segue reference="PFk-z7-c7X"/>
+        <segue reference="1Hs-yv-XLb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Default Banner Image" width="7183" height="2584"/>

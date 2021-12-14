@@ -14,13 +14,18 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
 	let defaultProfilePic = UIImage(systemName: "person.fill")?.withTintColor(UIColor.systemGray3)
-    
+	let defaults = UserDefaults.standard
+
     var posts = [PFObject]()
     let myRefreshControl = UIRefreshControl() // pull to refresh
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+	    let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.onLogoutButton))
+	    navigationItem.rightBarButtonItem = logoutButton
+	    logoutButton.tintColor = UIColor.systemRed
+
         //forcing darkmode
         overrideUserInterfaceStyle = .dark
 
@@ -32,7 +37,13 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.refreshControl = myRefreshControl
         self.tableView.rowHeight = UITableView.automaticDimension
     }
-    
+	@objc private func onLogoutButton() {
+		defaults.set(false, forKey: "rememberMe")
+		PFUser.logOut()
+		performSegue(withIdentifier: "logout", sender: nil)
+		print("logout")
+	}
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 	    refreshPosts()
@@ -225,7 +236,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 		    }
 	    }
     }
-
 	func CommentViewControllerDidCancel(_ commentViewController: CommentViewController) {
 		dismiss(animated: true, completion: nil)
 	}

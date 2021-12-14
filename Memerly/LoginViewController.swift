@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
 	    self.navigationController?.setNavigationBarHidden(true, animated: false)
 	    self.navigationController?.setToolbarHidden(true, animated: true)
 
-	    if defaults.bool(forKey: "rememberMe") {
+	    if defaults.bool(forKey: "rememberMe") == true {
 		    self.performSegue(withIdentifier: "loginSegue", sender: nil)
 
 	    }
