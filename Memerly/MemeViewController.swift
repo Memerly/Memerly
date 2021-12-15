@@ -103,7 +103,7 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 			//		photoURL = imgURL
 
 		let size = CGSize(width: 300, height: 300)
-		let scaledImage = image.af.imageAspectScaled(toFill: size)
+        let scaledImage = image.af.imageAspectScaled(toFit: size)
 
 		memeImageView.image = scaledImage
 			//		clearButton.isHidden = false
@@ -198,6 +198,11 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 		return cell
 	}
     
+    @IBAction func onCancelButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 	@IBAction func onPreviewButton(_ sender: Any) {
 		let template_id = selectedMeme.id
 
@@ -274,7 +279,7 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	}
 	@IBAction func onPostButton(_ sender: Any) {
         let size = CGSize(width: 300, height: 300)
-        let scaledImage = memeImageView.image?.af.imageAspectScaled(toFill: size)
+        let scaledImage = memeImageView.image?.af.imageAspectScaled(toFit: size)
         if memeImageView.image != UIImage(systemName: "photo.artframe") {
            let post = PFObject(className: "Posts")
 

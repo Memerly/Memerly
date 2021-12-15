@@ -40,6 +40,7 @@
 		F6A69DDA273F21D800D86F2B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DD9273F21D800D86F2B /* FeedViewController.swift */; };
 		F6A69DDC273F220E00D86F2B /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DDB273F220E00D86F2B /* PostViewController.swift */; };
 		F6A69DDE273F223300D86F2B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A69DDD273F223300D86F2B /* ProfileViewController.swift */; };
+		F6C3BD1C276A4DB100E7A9F2 /* MemeNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3BD1B276A4DB100E7A9F2 /* MemeNavController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		F6A69DD9273F21D800D86F2B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		F6A69DDB273F220E00D86F2B /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		F6A69DDD273F223300D86F2B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F6C3BD1B276A4DB100E7A9F2 /* MemeNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeNavController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				37A8B2CE274B5FB00066E596 /* OtherProfileViewController.swift */,
 				F6A4B0FB274978C100748661 /* PostCell.swift */,
 				F6163439275C0EB30039CBC6 /* FeedNavController.swift */,
+				F6C3BD1B276A4DB100E7A9F2 /* MemeNavController.swift */,
 			);
 			path = Memerly;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				3754BB3527672E9500786D7C /* Memes.swift in Sources */,
 				372331C827674AFE00E14894 /* Box.swift in Sources */,
 				37477A90275C8F3700C30A67 /* CheckBoxButton.swift in Sources */,
+				F6C3BD1C276A4DB100E7A9F2 /* MemeNavController.swift in Sources */,
 				37F6A04B275E0C3000FA1F65 /* CommentViewController.swift in Sources */,
 				F616343A275C0EB30039CBC6 /* FeedNavController.swift in Sources */,
 				372331C62767440D00E14894 /* TextBoxTableViewCell.swift in Sources */,
