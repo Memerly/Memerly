@@ -17,12 +17,12 @@ struct Meme: Decodable {
 	let width : Int
 
 	init() {
-		box_count = 0
-		height = 0
-		id = ""
-		name = ""
-		url = ""
-		width = 0
+		box_count = 2
+		height = 300
+		id = "custom"
+		name = "Custom"
+		url = "custom"
+		width = 300
 	}
 
 	enum CodingKeys: String, CodingKey {

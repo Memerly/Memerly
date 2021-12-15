@@ -16,16 +16,19 @@ protocol MemeViewControllerDelegate: AnyObject {
 }
 
 
-class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDelegate {
+class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
 	let username = "Memerly"
 	let password = "November21!"
+	let defaultImage = UIImage(systemName: "photo.artframe")?.withTintColor(UIColor.darkGray)
+	var photoURL = URL(string: "")
 
 	var memes = [Meme]()
 	var selectedMeme = Meme()
 
 	weak var delegate: MemeViewControllerDelegate?
 
+	@IBOutlet var cameraTapRecognizer: UITapGestureRecognizer!
 	@IBOutlet weak var memeImageView: UIImageView!
 	@IBOutlet weak var textBoxTableView: UITableView!
 	var memePickerView = UIPickerView()
@@ -65,6 +68,7 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 			switch response.result {
 				case .success(let data):
 					self.memes = data.data.values.first!
+					self.memes.insert(Meme(), at: 0)
 					self.selectedMeme = self.memes[0]
 					print(self.memes[0].name)
 					self.memePickerView.reloadAllComponents()
@@ -74,6 +78,37 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 					print(error)
 			}
 		}
+	}
+	@IBAction func onCameraButton(_ sender: Any) {
+		let picker = UIImagePickerController()
+		picker.delegate = self
+		picker.allowsEditing = true
+
+		if UIImagePickerController.isSourceTypeAvailable(.camera) {
+			picker.sourceType = .camera
+		}
+		else {
+			picker.sourceType = .photoLibrary
+		}
+
+		present(picker, animated: true, completion: nil)
+
+	}
+
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+		let image = info[.editedImage] as! UIImage
+		photoURL = saveImage(image, name: "temp.jpg")
+
+			//		let imgURL = info[.imageURL] as! URL
+			//		photoURL = imgURL
+
+		let size = CGSize(width: 300, height: 300)
+		let scaledImage = image.af.imageAspectScaled(toFill: size)
+
+		memeImageView.image = scaledImage
+			//		clearButton.isHidden = false
+			//		postButton.isHidden = false
+		dismiss(animated: true, completion: nil)
 	}
 
 	
@@ -134,9 +169,19 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		selectedMeme = memes[row]
 		let urlString = selectedMeme.url
-		let url = URL(string: urlString)!
+		if urlString != "custom" {
+			let url = URL(string: urlString)!
 
-		memeImageView.af.setImage(withURL: url)
+			photoURL = URL(string: "")
+			cameraTapRecognizer.isEnabled = false
+			memeImageView.isUserInteractionEnabled = false
+			memeImageView.af.setImage(withURL: url)
+		} else {
+			photoURL = URL(string: "")
+			cameraTapRecognizer.isEnabled = true
+			memeImageView.isUserInteractionEnabled = true
+			memeImageView.image = defaultImage
+		}
 		textBoxTableView.reloadData()
 	}
 
@@ -147,7 +192,7 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = textBoxTableView.dequeueReusableCell(withIdentifier: "textBox") as! TextBoxTableViewCell
 
-		cell.textBoxTextField.placeholder = "Text Box \(indexPath.row)"
+		cell.textBoxTextField.placeholder = "Text Box \(indexPath.row + 1)"
 		cell.textBoxTextField.tag = indexPath.row + 1
 
 		return cell
@@ -155,35 +200,75 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
 	@IBAction func onPreviewButton(_ sender: Any) {
 		let template_id = selectedMeme.id
-		let username = username
-		let password = password
-		var boxes = [[String : String]]()
 
-		for i in 1...selectedMeme.box_count {
-			if let textField = self.textBoxTableView.viewWithTag(i) as? UITextField {
-//				let textBox = Box.init(text: textField.text!)
-				boxes.append(["text" : textField.text!])
+		if template_id != "custom" {
+			let username = username
+			let password = password
+			var boxes = [[String : String]]()
+
+			for i in 1...selectedMeme.box_count {
+				if let textField = self.textBoxTableView.viewWithTag(i) as? UITextField {
+	//				let textBox = Box.init(text: textField.text!)
+					boxes.append(["text" : textField.text!])
+				}
 			}
-		}
 
-		let params = [
-			"template_id" : template_id,
-			"username" : username,
-			"password" : password,
-			"boxes" : boxes
-		] as [String : Any]
+			let params = [
+				"template_id" : template_id,
+				"username" : username,
+				"password" : password,
+				"boxes" : boxes
+			] as [String : Any]
 
-		let request = AF.request("https://api.imgflip.com/caption_image", method: .post, parameters: params)
-		request.responseDecodable(of: APIMemes.self) { response in
-			switch response.result {
-				case .success(let data):
-					let meme = data.data
-					let urlString = meme.url
-					let url = URL(string: urlString)!
+			let request = AF.request("https://api.imgflip.com/caption_image", method: .post, parameters: params)
+			request.responseDecodable(of: APIMemes.self) { response in
+				switch response.result {
+					case .success(let data):
+						let meme = data.data
+						let urlString = meme.url
+						let url = URL(string: urlString)!
 
-					self.memeImageView.af.setImage(withURL: url)
-				case .failure(let error):
-					print(error)
+						self.memeImageView.af.setImage(withURL: url)
+					case .failure(let error):
+						print(error)
+				}
+			}
+		} else {
+			let headers: HTTPHeaders = [
+				"API-KEY" : "b2c6273b612f9c7cf771fcd780404a"
+			]
+			var topText = ""
+			var bottomText = ""
+
+			for i in 1...selectedMeme.box_count {
+				if let textField = self.textBoxTableView.viewWithTag(i) as? UITextField {
+					if i == 1 {
+						topText = textField.text!
+					}
+					if i == 2 {
+						bottomText = textField.text!
+					}
+				}
+			}
+			if photoURL != nil {
+				let request = AF.upload(multipartFormData: { multipartFormData in
+					multipartFormData.append(Data(topText.utf8), withName: "topText")
+					multipartFormData.append(Data(bottomText.utf8), withName: "bottomText")
+					multipartFormData.append(self.photoURL!, withName: "image")
+				} , to: "https://memebuild.com/api/1.0/generateMeme", method: .post, headers: headers)
+				request.responseDecodable(of: CustomAPIMeme.self) { response in
+					debugPrint(response)
+					switch response.result {
+						case .success(let data):
+							let urlString = data.url
+							let url = URL(string: urlString)!
+
+							self.memeImageView.af.setImage(withURL: url)
+							print(data)
+						case .failure(let error):
+							print(error)
+					}
+				}
 			}
 		}
 	}
@@ -201,7 +286,7 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             post["likedCount"] = 0
             post["likedBy"] = []
 
-           let imageData = memeImageView.image!.pngData()
+           let imageData = scaledImage!.pngData()
            let file = PFFileObject(name: "image.png", data: imageData!)
 
            post["image"] = file
@@ -222,6 +307,19 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
 	}
 
+	func saveImage(_ image: UIImage, name: String) -> URL? {
+		guard let imageData = image.jpegData(compressionQuality: 0.1) else {
+			return nil
+		}
+		do {
+			let imageURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(name)
+			try imageData.write(to: imageURL)
+			return imageURL
+		} catch {
+			return nil
+		}
+	}
+
     /*
     // MARK: - Navigation
 
@@ -232,4 +330,13 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     */
 
+}
+extension UIImage {
+		/// Save PNG in the Documents directory
+	func save(_ name: String) {
+		let path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+		let url = URL(fileURLWithPath: path).appendingPathComponent(name)
+		try! self.pngData()?.write(to: url)
+		print("saved image at \(url)")
+	}
 }

@@ -1245,11 +1245,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bn5-xO-Wdd">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bn5-xO-Wdd">
                                 <rect key="frame" x="20" y="60" width="374" height="360"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bn5-xO-Wdd" secondAttribute="height" multiplier="374:373" id="2sQ-Kb-Er8"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="o16-Fs-Unq" appends="YES" id="wFV-xL-tAW"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAH-Ig-ocS">
                                 <rect key="frame" x="20" y="451" width="180" height="32"/>
@@ -1355,12 +1360,18 @@
                     <navigationItem key="navigationItem" id="rxz-e5-jcO"/>
                     <connections>
                         <outlet property="addCaptionTextField" destination="S86-yh-EK8" id="HAO-Um-OJn"/>
+                        <outlet property="cameraTapRecognizer" destination="o16-Fs-Unq" id="XvT-rN-7bz"/>
                         <outlet property="memPickerButton" destination="pAH-Ig-ocS" id="Dly-ZL-PE3"/>
                         <outlet property="memeImageView" destination="Bn5-xO-Wdd" id="pds-FA-wuj"/>
                         <outlet property="textBoxTableView" destination="TBL-M2-HcL" id="bTY-sH-QEk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMR-0J-9Fc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="o16-Fs-Unq">
+                    <connections>
+                        <action selector="onCameraButton:" destination="AkJ-UZ-ofK" id="OP5-uS-RSc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="82.608695652173921" y="1668.75"/>
         </scene>

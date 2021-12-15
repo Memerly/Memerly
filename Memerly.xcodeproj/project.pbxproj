@@ -12,6 +12,7 @@
 		372331C827674AFE00E14894 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372331C727674AFE00E14894 /* Box.swift */; };
 		372331CA2767564D00E14894 /* APIMemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372331C92767564D00E14894 /* APIMemes.swift */; };
 		372331CC276757A700E14894 /* APIMeme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372331CB276757A700E14894 /* APIMeme.swift */; };
+		3734C5D827699B0900DB4418 /* CustomAPIMeme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3734C5D727699B0900DB4418 /* CustomAPIMeme.swift */; };
 		37477A8C275B32B500C30A67 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37477A8B275B32B500C30A67 /* PostCollectionViewCell.swift */; };
 		37477A8E275B7E5700C30A67 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37477A8D275B7E5700C30A67 /* EditProfileViewController.swift */; };
 		37477A90275C8F3700C30A67 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37477A8F275C8F3700C30A67 /* CheckBoxButton.swift */; };
@@ -63,6 +64,7 @@
 		372331C727674AFE00E14894 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		372331C92767564D00E14894 /* APIMemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMemes.swift; sourceTree = "<group>"; };
 		372331CB276757A700E14894 /* APIMeme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMeme.swift; sourceTree = "<group>"; };
+		3734C5D727699B0900DB4418 /* CustomAPIMeme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAPIMeme.swift; sourceTree = "<group>"; };
 		37477A8B275B32B500C30A67 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		37477A8D275B7E5700C30A67 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		37477A8F275C8F3700C30A67 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				3754BB302767238400786D7C /* Meme.swift */,
 				372331C727674AFE00E14894 /* Box.swift */,
 				372331C92767564D00E14894 /* APIMemes.swift */,
+				3734C5D727699B0900DB4418 /* CustomAPIMeme.swift */,
 				3754BB3427672E9500786D7C /* Memes.swift */,
 				37477A8B275B32B500C30A67 /* PostCollectionViewCell.swift */,
 				372331C52767440D00E14894 /* TextBoxTableViewCell.swift */,
@@ -489,6 +492,7 @@
 				3754BB312767238400786D7C /* Meme.swift in Sources */,
 				F6A4B0FC274978C100748661 /* PostCell.swift in Sources */,
 				37F6A04D275E0F0200FA1F65 /* CommentsTableViewCell.swift in Sources */,
+				3734C5D827699B0900DB4418 /* CustomAPIMeme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
