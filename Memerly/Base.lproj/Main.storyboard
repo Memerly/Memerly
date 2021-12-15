@@ -353,7 +353,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3228.985507246377" y="1705.5803571428571"/>
+            <point key="canvasLocation" x="2320" y="1706"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="1OL-u2-4VT">
@@ -478,7 +478,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-h8-C94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1097" y="1859"/>
+            <point key="canvasLocation" x="1029" y="2346"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="jZK-2b-q6H">
@@ -502,14 +502,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HHO-uz-hRm">
-                                                    <rect key="frame" x="20" y="8" width="374" height="290"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="298"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="374" id="MVa-F5-FMq"/>
-                                                        <constraint firstAttribute="height" constant="290" id="yXt-6r-qb8"/>
+                                                        <constraint firstAttribute="width" constant="398" id="FXz-OD-6q2"/>
+                                                        <constraint firstAttribute="height" constant="298" id="zZ3-Ni-BFf"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption goes here in this line." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCn-Ty-GFF">
-                                                    <rect key="frame" x="20" y="349" width="374" height="25"/>
+                                                    <rect key="frame" x="8" y="357" width="398" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="8HC-27-wvn"/>
                                                     </constraints>
@@ -530,7 +530,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mj1-Bd-ho9">
-                                                    <rect key="frame" x="70" y="307" width="81" height="34"/>
+                                                    <rect key="frame" x="58" y="315" width="81" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="NSN-Bn-a4m"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="81" id="i5a-Dj-Off"/>
@@ -546,7 +546,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spr-Y5-QAF">
-                                                    <rect key="frame" x="292" y="382" width="35" height="43"/>
+                                                    <rect key="frame" x="304" y="390" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="Nhw-JG-mPx"/>
                                                     </constraints>
@@ -558,7 +558,7 @@
                                                     </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="93n-7O-1GG">
-                                                    <rect key="frame" x="20" y="306" width="42" height="38.666666666666686"/>
+                                                    <rect key="frame" x="8" y="314" width="42" height="38.666666666666686"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" systemColor="systemGray6Color"/>
                                                     <constraints>
@@ -658,14 +658,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <gestureRecognizers/>
                         <color key="tintColor" red="0.96862745289999996" green="0.8078432083" blue="0.27450981740000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="selectedImageTintColor" red="0.96862745289999996" green="0.8078432083" blue="0.27450981740000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
-                        <segue destination="3Ls-B5-JJA" kind="relationship" relationship="viewControllers" id="SDP-Oi-wuL"/>
-                        <segue destination="kb5-D7-lQJ" kind="relationship" relationship="viewControllers" id="kKn-7B-Buj"/>
-                        <segue destination="Umr-dq-Ehe" kind="relationship" relationship="viewControllers" id="WfM-5r-HYX"/>
+                        <segue destination="3Ls-B5-JJA" kind="relationship" relationship="viewControllers" destinationCreationSelector="FeedSegue" id="MDL-Lc-Mtb"/>
+                        <segue destination="Umr-dq-Ehe" kind="relationship" relationship="viewControllers" id="rli-nn-PfR"/>
+                        <segue destination="AkJ-UZ-ofK" kind="relationship" relationship="viewControllers" id="Fnt-ef-IaB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVk-EX-fbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -695,7 +694,7 @@
         <!--Feed Navigation Controller-->
         <scene sceneID="1gb-cz-f23">
             <objects>
-                <navigationController storyboardIdentifier="feedNavController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" interfaceStyle="dark" id="3Ls-B5-JJA" userLabel="Feed Navigation Controller" customClass="FeedNavController" customModule="Memerly" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" interfaceStyle="dark" id="3Ls-B5-JJA" userLabel="Feed Navigation Controller" customClass="FeedNavController" customModule="Memerly" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="text.below.photo" catalog="system" id="O9u-qJ-nwx">
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
@@ -1236,9 +1235,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w8d-0X-Eva" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1939.1304347826087" y="1599.7767857142856"/>
+            <point key="canvasLocation" x="1029" y="1600"/>
         </scene>
-        <!--Meme View Controller-->
+        <!--Post-->
         <scene sceneID="oFG-v9-rTD">
             <objects>
                 <viewController storyboardIdentifier="memeViewController" id="AkJ-UZ-ofK" customClass="MemeViewController" customModule="Memerly" customModuleProvider="target" sceneMemberID="viewController">
@@ -1246,7 +1245,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bn5-xO-Wdd">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bn5-xO-Wdd">
                                 <rect key="frame" x="20" y="60" width="374" height="360"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -1258,7 +1257,7 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAH-Ig-ocS">
-                                <rect key="frame" x="20" y="495" width="180" height="32"/>
+                                <rect key="frame" x="20" y="451" width="180" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="hfo-UB-uGK"/>
                                     <constraint firstAttribute="width" constant="180" id="ycr-3c-BNm"/>
@@ -1270,7 +1269,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TBL-M2-HcL">
-                                <rect key="frame" x="20" y="543" width="374" height="154.33333333333337"/>
+                                <rect key="frame" x="20" y="498.99999999999994" width="374" height="154.33333333333331"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="154.33333333333348" id="zJg-8P-CuF"/>
@@ -1311,7 +1310,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S86-yh-EK8">
-                                <rect key="frame" x="20" y="706" width="374" height="35"/>
+                                <rect key="frame" x="20" y="662" width="374" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="CfF-jq-UpB"/>
                                 </constraints>
@@ -1319,7 +1318,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGH-ad-SOA">
-                                <rect key="frame" x="20" y="782" width="140" height="41"/>
+                                <rect key="frame" x="20" y="738" width="140" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="O3E-Sd-kTP"/>
                                 </constraints>
@@ -1357,14 +1356,8 @@
                             <constraint firstItem="TBL-M2-HcL" firstAttribute="leading" secondItem="lVe-tC-XU0" secondAttribute="leading" constant="20" id="zTe-PZ-Zvb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rxz-e5-jcO">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="w2a-51-x6K">
-                            <color key="tintColor" systemColor="systemRedColor"/>
-                            <connections>
-                                <action selector="onCancelButton:" destination="AkJ-UZ-ofK" id="elW-6b-8AW"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <tabBarItem key="tabBarItem" title="Post" image="plus.square.on.square" catalog="system" id="YX9-aU-PvM"/>
+                    <navigationItem key="navigationItem" id="rxz-e5-jcO"/>
                     <connections>
                         <outlet property="addCaptionTextField" destination="S86-yh-EK8" id="HAO-Um-OJn"/>
                         <outlet property="cameraTapRecognizer" destination="o16-Fs-Unq" id="XvT-rN-7bz"/>
@@ -1380,7 +1373,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="35" y="2379"/>
+            <point key="canvasLocation" x="82.608695652173921" y="1668.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8PS-Rs-q8h">
@@ -1400,25 +1393,6 @@
             </objects>
             <point key="canvasLocation" x="-1872" y="3108"/>
         </scene>
-        <!--Post-->
-        <scene sceneID="Yqi-l5-AFd">
-            <objects>
-                <navigationController storyboardIdentifier="memeNavController" automaticallyAdjustsScrollViewInsets="NO" id="kb5-D7-lQJ" customClass="MemeNavController" customModule="Memerly" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" image="plus" catalog="system" id="YX9-aU-PvM"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dgy-Ku-iDc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="AkJ-UZ-ofK" kind="relationship" relationship="rootViewController" id="arD-64-vEg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Wy-Se-Yau" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="1646.6517857142856"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="q4V-Bv-9a3"/>
@@ -1436,6 +1410,7 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus.square.on.square" catalog="system" width="128" height="113"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="text.below.photo" catalog="system" width="117" height="128"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
@@ -1450,9 +1425,6 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
