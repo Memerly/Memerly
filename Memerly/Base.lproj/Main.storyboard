@@ -14,7 +14,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" interfaceStyle="dark" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Memerly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfa-fw-cCS">
@@ -146,7 +146,7 @@
             <objects>
                 <viewController modalPresentationStyle="pageSheet" interfaceStyle="dark" id="xfI-ak-I3M" customClass="SignupViewController" customModule="Memerly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cud-ck-HVX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1CR-aG-wMA">
@@ -265,7 +265,7 @@
             <objects>
                 <viewController storyboardIdentifier="postViewController" title="post" modalPresentationStyle="pageSheet" id="Xbg-C1-8Jh" userLabel="Post View Controller" customClass="PostViewController" customModule="Memerly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZHO-Lz-eyz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZG-kJ-CSU">
@@ -282,7 +282,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uBo-v6-Ba9">
-                                <rect key="frame" x="57" y="78.666666666666657" width="300" height="297"/>
+                                <rect key="frame" x="57" y="78.666666666666657" width="300" height="346"/>
                                 <color key="tintColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -316,9 +316,6 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Meme Templates" titleAlignment="center">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <segue destination="j7V-Y8-pxA" kind="presentation" identifier="memeView" modalPresentationStyle="fullScreen" id="CEi-hl-ifN"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v0D-6F-oge"/>
@@ -356,7 +353,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="1599.7767857142856"/>
+            <point key="canvasLocation" x="2320" y="1706"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="1OL-u2-4VT">
@@ -666,8 +663,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="3Ls-B5-JJA" kind="relationship" relationship="viewControllers" destinationCreationSelector="FeedSegue" id="MDL-Lc-Mtb"/>
-                        <segue destination="Xbg-C1-8Jh" kind="relationship" relationship="viewControllers" id="7fR-WE-9DF"/>
                         <segue destination="Umr-dq-Ehe" kind="relationship" relationship="viewControllers" id="rli-nn-PfR"/>
+                        <segue destination="AkJ-UZ-ofK" kind="relationship" relationship="viewControllers" id="Fnt-ef-IaB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVk-EX-fbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1240,32 +1237,22 @@
             </objects>
             <point key="canvasLocation" x="1029" y="1600"/>
         </scene>
-        <!--Meme View Controller-->
+        <!--Item-->
         <scene sceneID="oFG-v9-rTD">
             <objects>
-                <viewController modalPresentationStyle="pageSheet" id="AkJ-UZ-ofK" customClass="MemeViewController" customModule="Memerly" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="memeViewController" id="AkJ-UZ-ofK" customClass="MemeViewController" customModule="Memerly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="prI-Xr-cvq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bn5-xO-Wdd">
-                                <rect key="frame" x="20" y="88" width="374" height="373"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bn5-xO-Wdd">
+                                <rect key="frame" x="20" y="60" width="374" height="360"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bn5-xO-Wdd" secondAttribute="height" multiplier="374:373" id="2sQ-Kb-Er8"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGH-ad-SOA">
-                                <rect key="frame" x="20" y="738" width="140" height="41"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Post" cornerStyle="capsule">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="onPostButton:" destination="AkJ-UZ-ofK" eventType="touchUpInside" id="kcB-Dd-dbl"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAH-Ig-ocS">
-                                <rect key="frame" x="20" y="479" width="180" height="32"/>
+                                <rect key="frame" x="20" y="451" width="180" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="hfo-UB-uGK"/>
                                     <constraint firstAttribute="width" constant="180" id="ycr-3c-BNm"/>
@@ -1277,7 +1264,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TBL-M2-HcL">
-                                <rect key="frame" x="20" y="529" width="374" height="154.33333333333337"/>
+                                <rect key="frame" x="20" y="498.99999999999994" width="374" height="154.33333333333331"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="154.33333333333348" id="zJg-8P-CuF"/>
@@ -1307,7 +1294,7 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jg-XL-N8f">
                                 <rect key="frame" x="254" y="739" width="140" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="plz-sc-ZG7"/>
+                                    <constraint firstAttribute="width" constant="140" id="eyo-hm-M3F"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Preview" cornerStyle="capsule">
@@ -1317,31 +1304,57 @@
                                     <action selector="onPreviewButton:" destination="AkJ-UZ-ofK" eventType="touchUpInside" id="AkY-xQ-Xch"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S86-yh-EK8">
+                                <rect key="frame" x="20" y="662" width="374" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="CfF-jq-UpB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGH-ad-SOA">
+                                <rect key="frame" x="20" y="738" width="140" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="O3E-Sd-kTP"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Post" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onPostButton:" destination="AkJ-UZ-ofK" eventType="touchUpInside" id="kcB-Dd-dbl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lVe-tC-XU0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lVe-tC-XU0" firstAttribute="trailing" secondItem="TBL-M2-HcL" secondAttribute="trailing" constant="20" id="3cV-JI-xgx"/>
-                            <constraint firstItem="lVe-tC-XU0" firstAttribute="bottom" secondItem="4Jg-XL-N8f" secondAttribute="bottom" constant="83" id="7NQ-e7-wSg"/>
+                            <constraint firstItem="lVe-tC-XU0" firstAttribute="trailing" secondItem="S86-yh-EK8" secondAttribute="trailing" constant="20" id="AC0-io-ac1"/>
                             <constraint firstItem="Bn5-xO-Wdd" firstAttribute="leading" secondItem="lVe-tC-XU0" secondAttribute="leading" constant="20" id="Bju-P9-SBB"/>
+                            <constraint firstItem="S86-yh-EK8" firstAttribute="leading" secondItem="lVe-tC-XU0" secondAttribute="leading" constant="20" id="DPn-aZ-ob0"/>
                             <constraint firstItem="lVe-tC-XU0" firstAttribute="trailing" secondItem="Bn5-xO-Wdd" secondAttribute="trailing" constant="20" id="Fl0-0y-dHc"/>
+                            <constraint firstItem="KGH-ad-SOA" firstAttribute="top" secondItem="S86-yh-EK8" secondAttribute="bottom" constant="41" id="Hik-cH-v26"/>
+                            <constraint firstItem="KGH-ad-SOA" firstAttribute="leading" secondItem="S86-yh-EK8" secondAttribute="leading" id="JJC-Ws-801"/>
                             <constraint firstItem="TBL-M2-HcL" firstAttribute="leading" secondItem="lVe-tC-XU0" secondAttribute="leading" constant="20" id="K5n-eb-RJJ"/>
-                            <constraint firstItem="TBL-M2-HcL" firstAttribute="top" secondItem="pAH-Ig-ocS" secondAttribute="bottom" constant="18" id="M3a-11-GOw"/>
-                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="leading" secondItem="KGH-ad-SOA" secondAttribute="trailing" constant="94" id="N64-cM-fDD"/>
+                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="centerY" secondItem="KGH-ad-SOA" secondAttribute="centerY" id="KXt-mv-sFT"/>
+                            <constraint firstItem="TBL-M2-HcL" firstAttribute="top" secondItem="pAH-Ig-ocS" secondAttribute="bottom" constant="16" id="MZZ-Bd-q7i"/>
+                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="top" secondItem="S86-yh-EK8" secondAttribute="bottom" constant="41" id="NCd-5r-BQN"/>
+                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="bottom" secondItem="KGH-ad-SOA" secondAttribute="bottom" id="Nlf-d3-OOr"/>
+                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="trailing" secondItem="S86-yh-EK8" secondAttribute="trailing" id="OMB-F7-dsR"/>
                             <constraint firstItem="pAH-Ig-ocS" firstAttribute="leading" secondItem="lVe-tC-XU0" secondAttribute="leading" constant="20" id="SrW-tK-BGj"/>
-                            <constraint firstItem="TBL-M2-HcL" firstAttribute="leading" secondItem="KGH-ad-SOA" secondAttribute="leading" id="TvT-ak-ym4"/>
                             <constraint firstItem="lVe-tC-XU0" firstAttribute="trailing" secondItem="TBL-M2-HcL" secondAttribute="trailing" constant="20" id="X7q-5r-gD8"/>
-                            <constraint firstItem="KGH-ad-SOA" firstAttribute="top" secondItem="TBL-M2-HcL" secondAttribute="bottom" constant="47.666666666666515" id="YEB-QM-dtk"/>
+                            <constraint firstItem="S86-yh-EK8" firstAttribute="top" secondItem="TBL-M2-HcL" secondAttribute="bottom" constant="8.6699999999999999" id="esC-5b-gIa"/>
                             <constraint firstItem="pAH-Ig-ocS" firstAttribute="top" secondItem="Bn5-xO-Wdd" secondAttribute="bottom" constant="18" id="lVk-kg-VcA"/>
-                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="centerY" secondItem="KGH-ad-SOA" secondAttribute="centerY" id="nWU-aP-bCg"/>
-                            <constraint firstItem="TBL-M2-HcL" firstAttribute="trailing" secondItem="4Jg-XL-N8f" secondAttribute="trailing" id="qut-7g-AjJ"/>
-                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="bottom" secondItem="KGH-ad-SOA" secondAttribute="bottom" id="y7P-fK-73S"/>
-                            <constraint firstItem="Bn5-xO-Wdd" firstAttribute="top" secondItem="lVe-tC-XU0" secondAttribute="top" id="yhj-8p-tfC"/>
+                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="leading" secondItem="KGH-ad-SOA" secondAttribute="trailing" constant="94" id="r44-TC-L0E"/>
+                            <constraint firstItem="Bn5-xO-Wdd" firstAttribute="top" secondItem="lVe-tC-XU0" secondAttribute="top" constant="16" id="yhj-8p-tfC"/>
                             <constraint firstItem="TBL-M2-HcL" firstAttribute="leading" secondItem="lVe-tC-XU0" secondAttribute="leading" constant="20" id="zTe-PZ-Zvb"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="YX9-aU-PvM"/>
                     <navigationItem key="navigationItem" id="rxz-e5-jcO"/>
                     <connections>
+                        <outlet property="addCaptionTextField" destination="S86-yh-EK8" id="HAO-Um-OJn"/>
                         <outlet property="memPickerButton" destination="pAH-Ig-ocS" id="Dly-ZL-PE3"/>
                         <outlet property="memeImageView" destination="Bn5-xO-Wdd" id="pds-FA-wuj"/>
                         <outlet property="textBoxTableView" destination="TBL-M2-HcL" id="bTY-sH-QEk"/>
@@ -1349,7 +1362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMR-0J-9Fc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="3107.8125"/>
+            <point key="canvasLocation" x="82.608695652173921" y="1668.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8PS-Rs-q8h">
@@ -1369,27 +1382,8 @@
             </objects>
             <point key="canvasLocation" x="-1872" y="3108"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="jSb-KK-nCE">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c72-LL-UsH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j7V-Y8-pxA" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wJF-H7-UYh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="AkJ-UZ-ofK" kind="relationship" relationship="rootViewController" id="3ML-5G-gio"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="2345.7589285714284"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MDL-Lc-Mtb"/>
         <segue reference="q4V-Bv-9a3"/>
         <segue reference="sDt-5f-alF"/>
         <segue reference="1Hs-yv-XLb"/>

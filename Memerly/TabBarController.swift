@@ -30,10 +30,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if viewController is PostViewController {
+        if viewController is MemeViewController {
 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let controller = storyboard.instantiateViewController(withIdentifier: "postViewController") as? PostViewController {
+                if let controller = storyboard.instantiateViewController(withIdentifier: "memeViewController") as? MemeViewController {
                     controller.modalPresentationStyle = .automatic
                     self.present(controller, animated: true, completion: nil)
                 }

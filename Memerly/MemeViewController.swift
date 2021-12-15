@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Parse
 
 protocol MemeViewControllerDelegate: AnyObject {
 
@@ -29,7 +30,7 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	@IBOutlet weak var textBoxTableView: UITableView!
 	var memePickerView = UIPickerView()
     @IBOutlet weak var memPickerButton: UIButton!
-    @IBOutlet weak var captionTextField: UITextField!
+    @IBOutlet weak var addCaptionTextField: UITextField!
     
     let screenWidth = UIScreen.main.bounds.width - 10
     let screenHeight = UIScreen.main.bounds.height / 2
@@ -187,6 +188,36 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 		}
 	}
 	@IBAction func onPostButton(_ sender: Any) {
+        let size = CGSize(width: 300, height: 300)
+        let scaledImage = memeImageView.image?.af.imageAspectScaled(toFill: size)
+        if memeImageView.image != UIImage(systemName: "photo.artframe") {
+           let post = PFObject(className: "Posts")
+
+           post["caption"] = addCaptionTextField.text!
+           post["author"] = PFUser.current()!
+            post["comments"] = []
+            post["commentCount"] = 0
+            post["commentedBy"] = []
+            post["likedCount"] = 0
+            post["likedBy"] = []
+
+           let imageData = memeImageView.image!.pngData()
+           let file = PFFileObject(name: "image.png", data: imageData!)
+
+           post["image"] = file
+
+           post.saveInBackground { (success,error) in
+              if(success) {
+                  self.dismiss(animated: true) {
+                      print("saved!")
+                  }
+                 
+              }
+              else {
+                 print("error!")
+              }
+           }
+        }
 		delegate?.MemeViewControllerDidFinish(self)
 
 	}
