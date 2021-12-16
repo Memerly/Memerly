@@ -362,7 +362,7 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 		doneToolbar.items = items
 		doneToolbar.sizeToFit()
 
-		addCaptionTextField.inputAccessoryView = doneToolbar
+		//addCaptionTextField.inputAccessoryView = doneToolbar
 	}
 
 	@objc func doneButtonAction(){
