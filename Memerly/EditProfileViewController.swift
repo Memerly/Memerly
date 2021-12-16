@@ -81,13 +81,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 			} else {
 				let urlString = img.url!
 				let url = URL(string: urlString)!
-				bannerPicImageView.af.setImage(withURL: url)
-				clearBannerPicButton.isHidden = false
+				//bannerPicImageView.af.setImage(withURL: url)
+				//clearBannerPicButton.isHidden = false
 			}
 		}
-		if bannerPic == nil || bannerPicImageView.image == defaultBannerPic {
-			clearBannerPicButton.isHidden = true
-		}
+//		if bannerPic == nil || bannerPicImageView.image == defaultBannerPic {
+//			clearBannerPicButton.isHidden = true
+//		}
 
 		let rememberMe = defaults.bool(forKey: "rememberMe")
 		rememberMeButton.isChecked = rememberMe
@@ -175,15 +175,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 			let file = PFFileObject(name: "defaultProfilePic.png", data: imageData!)
 			currentUser["profilePic"] = file
 		}
-		if bannerPicImageView.image != defaultBannerPic {
-			let imageData = bannerPicImageView.image!.pngData()
-			let file = PFFileObject(name: "bannerPic.png", data: imageData!)
-			currentUser["bannerPic"] = file
-		} else if bannerPicImageView.image == defaultBannerPic {
-			let imageData = defaultBannerPic!.pngData()
-			let file = PFFileObject(name: "defaultBannerPic.png", data: imageData!)
-			currentUser["bannerPic"] = file
-		}
+//		if bannerPicImageView.image != defaultBannerPic {
+//			let imageData = bannerPicImageView.image!.pngData()
+//			let file = PFFileObject(name: "bannerPic.png", data: imageData!)
+//			currentUser["bannerPic"] = file
+//		} else if bannerPicImageView.image == defaultBannerPic {
+//			let imageData = defaultBannerPic!.pngData()
+//			let file = PFFileObject(name: "defaultBannerPic.png", data: imageData!)
+//			currentUser["bannerPic"] = file
+//		}
 		do {
 			let results: () = try currentUser.save()
 			print(results)

@@ -74,7 +74,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
 			} else {
 				let urlString = img.url!
 				let url = URL(string: urlString)!
-				bannerPicImageView.af.setImage(withURL: url)
+				//bannerPicImageView.af.setImage(withURL: url)
 			}
 		}
 
