@@ -34,7 +34,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let controller = storyboard.instantiateViewController(withIdentifier: "memeNavController") as? MemeNavController {
-                    controller.modalPresentationStyle = .automatic
+                    controller.modalPresentationStyle = .fullScreen
                     self.present(controller, animated: true, completion: nil)
                 }
 
