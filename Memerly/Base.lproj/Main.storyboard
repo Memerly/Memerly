@@ -315,6 +315,17 @@
                                     <outletCollection property="gestureRecognizers" destination="XZw-em-yJc" appends="YES" id="H4V-pF-7hd"/>
                                 </connections>
                             </imageView>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" id="24n-I7-yuP">
+                                <rect key="frame" x="35" y="651" width="344" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Post" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onPostButton:" destination="Xbg-C1-8Jh" eventType="touchUpInside" id="okc-hK-8fW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v0D-6F-oge"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -331,25 +342,11 @@
                     <tabBarItem key="tabBarItem" title="Post" image="plus" catalog="system" id="fMm-KQ-Ioq">
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" id="cSQ-aB-Vcm">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="0vW-45-mxR">
-                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="pZG-kJ-CSU">
-                                <rect key="frame" x="273" y="0.0" width="121" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Post" cornerStyle="capsule">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="onPostButton:" destination="Xbg-C1-8Jh" eventType="touchUpInside" id="wSd-q2-bzP"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="cSQ-aB-Vcm"/>
                     <connections>
                         <outlet property="captionField" destination="BUQ-Re-NBu" id="Akf-RX-xC9"/>
                         <outlet property="memeImageView" destination="uBo-v6-Ba9" id="kyl-MP-ZAW"/>
-                        <outlet property="postButton" destination="pZG-kJ-CSU" id="cUt-Jv-ks4"/>
+                        <outlet property="postButton" destination="24n-I7-yuP" id="oUU-4h-n9X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBE-rd-QLr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

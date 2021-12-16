@@ -164,11 +164,29 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (UIAlertAction) in
             self.selectedRow = pickerView.selectedRow(inComponent: 0)
             //self.selectedRowTextColor = pickerView.selectedRow(inComponent: 1)
-            let selected = self.selectedMeme
+//            let selected = self.selectedMeme
             //let selectedTextColor = Array(self.backGroundColours)[self.selectedRowTextColor]
-            let name = selected.name
+//            let name = selected.name
             //self.memPickerButton.setTitle(name, for: .normal)
             //self.pickerViewButton.setTitleColor(selectedTextColor.value, for: .normal)
+		   self.selectedMeme = self.memes[self.selectedRow]
+		   let urlString = self.selectedMeme.url
+		   if urlString != "custom" {
+			   let url = URL(string: urlString)!
+
+			   self.photoURL = URL(string: "")
+			   self.cameraTapRecognizer.isEnabled = false
+			   self.choosePhotoButton.isHidden = true
+			   self.memeImageView.isUserInteractionEnabled = false
+			   self.memeImageView.af.setImage(withURL: url)
+		   } else {
+			   self.photoURL = URL(string: "")
+			   self.cameraTapRecognizer.isEnabled = true
+			   self.memeImageView.isUserInteractionEnabled = true
+			   self.choosePhotoButton.isHidden = false
+			   self.memeImageView.image = self.defaultImage
+		   }
+		   self.textBoxTableView.reloadData()
         }))
         
         self.present(alert, animated: true, completion: nil)
@@ -190,24 +208,7 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	}
 
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		selectedMeme = memes[row]
-		let urlString = selectedMeme.url
-		if urlString != "custom" {
-			let url = URL(string: urlString)!
 
-			photoURL = URL(string: "")
-			cameraTapRecognizer.isEnabled = false
-			choosePhotoButton.isHidden = true
-			memeImageView.isUserInteractionEnabled = false
-			memeImageView.af.setImage(withURL: url)
-		} else {
-			photoURL = URL(string: "")
-			cameraTapRecognizer.isEnabled = true
-			memeImageView.isUserInteractionEnabled = true
-			choosePhotoButton.isHidden = false
-			memeImageView.image = defaultImage
-		}
-		textBoxTableView.reloadData()
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
