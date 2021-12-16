@@ -569,14 +569,18 @@
                                                         <segue destination="YND-kt-6Ut" kind="presentation" identifier="commentView" id="q4V-Bv-9a3"/>
                                                     </connections>
                                                 </button>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="93n-7O-1GG">
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="93n-7O-1GG">
                                                     <rect key="frame" x="20" y="392" width="42" height="39"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" systemColor="systemGray6Color"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="oiN-Zn-I9p"/>
                                                         <constraint firstAttribute="width" constant="42" id="yWA-1L-fk6"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="kJA-bR-pfF" appends="YES" id="8uZ-vD-QZ5"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="right" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAO-Yx-Zcs">
                                                     <rect key="frame" x="345" y="400.66666666666669" width="18" height="21"/>
@@ -675,6 +679,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ey-Wb-3WK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kJA-bR-pfF"/>
             </objects>
             <point key="canvasLocation" x="-884.05797101449286" y="2345.7589285714284"/>
         </scene>
@@ -1154,7 +1159,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="Peb-qs-Y4S"/>
                     <navigationItem key="navigationItem" title="Edit Profile" largeTitleDisplayMode="never" id="Xkb-xJ-iF0">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="nUh-c7-Cs1">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AGy-k9-8uJ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AGy-k9-8uJ">
                                 <rect key="frame" x="274" y="1" width="120" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.96862745289999996" green="0.8078432083" blue="0.27450981740000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1226,14 +1231,14 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="textBox" id="c0j-Bu-kwU" customClass="TextBoxTableViewCell" customModule="Memerly" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="374" height="44"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="374" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c0j-Bu-kwU" id="0X1-uK-Dw6">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Add text..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIT-Ib-qBY">
-                                                    <rect key="frame" x="20" y="4.6666666666666679" width="334" height="35"/>
+                                                    <rect key="frame" x="20" y="4.3333333333333321" width="334" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="W5M-ao-M44"/>
                                                     </constraints>

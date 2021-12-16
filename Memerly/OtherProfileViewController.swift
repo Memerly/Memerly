@@ -66,17 +66,17 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
 		}
 
 
-		let bannerPic = user["bannerPic"]
-		if bannerPic != nil {
-			let img = bannerPic as! PFFileObject
-			if img.name.contains("defaultProfilePic.png") {
-				bannerPicImageView.image = defaultBannerPic
-			} else {
-				let urlString = img.url!
-				let url = URL(string: urlString)!
-				bannerPicImageView.af.setImage(withURL: url)
-			}
-		}
+//		let bannerPic = user["bannerPic"]
+//		if bannerPic != nil {
+//			let img = bannerPic as! PFFileObject
+//			if img.name.contains("defaultProfilePic.png") {
+//				bannerPicImageView.image = defaultBannerPic
+//			} else {
+//				let urlString = img.url!
+//				let url = URL(string: urlString)!
+//				bannerPicImageView.af.setImage(withURL: url)
+//			}
+//		}
 
 		let query = PFQuery(className:"Posts")
 		query.whereKey("author", equalTo: user)
