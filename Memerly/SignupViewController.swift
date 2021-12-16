@@ -37,12 +37,17 @@ class SignupViewController: UIViewController {
             if success {
                 self.performSegue(withIdentifier: "loginOnSignup", sender: nil)
             } else {
-                print("Error: \(error?.localizedDescription)")
+			  print("Error: \(String(describing: error?.localizedDescription))")
             }
             
         }
         
     }
+
+	@IBAction func onSignInButton(_ sender: Any) {
+		self.navigationController?.popViewController(animated: true)
+	}
+
     
     /*
     // MARK: - Navigation

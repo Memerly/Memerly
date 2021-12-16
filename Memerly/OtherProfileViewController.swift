@@ -94,6 +94,20 @@ class OtherProfileViewController: UIViewController, UICollectionViewDelegate, UI
 		profilePicImageView.clipsToBounds = true
 	}
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(true)
+
+		let query = PFQuery(className:"Posts")
+		query.whereKey("author", equalTo: user)
+		query.order(byDescending: "createdAt")
+		query.findObjectsInBackground { (posts, error) in
+			if posts != nil {
+				self.posts = posts!
+				self.postsCollectionView.reloadData()
+			}
+		}
+	}
+
 
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		posts.count

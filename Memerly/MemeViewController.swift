@@ -27,13 +27,13 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 	var selectedMeme = Meme()
 
 	weak var delegate: MemeViewControllerDelegate?
+	var memePickerView = UIPickerView()
 
 	@IBOutlet weak var choosePhotoButton: UIButton!
 	@IBOutlet var cameraTapRecognizer: UITapGestureRecognizer!
 	@IBOutlet weak var memeImageView: UIImageView!
 	@IBOutlet weak var textBoxTableView: UITableView!
-	var memePickerView = UIPickerView()
-    @IBOutlet weak var memPickerButton: UIButton!
+    @IBOutlet weak var memePickerButton: UIButton!
     @IBOutlet weak var addCaptionTextField: UITextField!
     
     let screenWidth = UIScreen.main.bounds.width - 10
@@ -130,8 +130,8 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 
         let alert = UIAlertController(title: "Pick a meme...", message: "", preferredStyle: .actionSheet)
                 
-        alert.popoverPresentationController?.sourceView = memPickerButton
-        alert.popoverPresentationController?.sourceRect = memPickerButton.bounds
+        alert.popoverPresentationController?.sourceView = memePickerButton
+        alert.popoverPresentationController?.sourceRect = memePickerButton.bounds
         
         alert.overrideUserInterfaceStyle = .dark
                 
