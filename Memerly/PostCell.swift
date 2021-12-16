@@ -28,6 +28,19 @@ class PostCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
 
+    }
+	@IBAction func onLikeButton(_ sender: UIButton) {
+		let count = Int(self.likeCountLabel.text!) ?? 0
+		if sender.currentImage == UIImage(systemName: "heart.fill") {
+			if count - 1 != 0 {
+				self.likeCountLabel.text = "\(count - 1)"
+			} else if count - 1 <= 0 {
+				self.likeCountLabel.text = ""
+			}
+
+		} else if sender.currentImage == UIImage(systemName: "heart") {
+			self.likeCountLabel.text = "\(count + 1)"
+		}
+	}
 }

@@ -63,6 +63,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 	    cell.usernameButton.tag = indexPath.row
 	    cell.heartButton.tag = indexPath.row
 	    cell.commentButton.tag = indexPath.row
+	    cell.likeCountLabel.tag = indexPath.row
         
 	    cell.captionLabel.text = post["caption"] as? String
         
@@ -143,6 +144,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 	@IBAction func onLikeButton(_ sender: UIButton) {
 		print("something")
 		let tag = sender.tag
+		selectRow(tableView: tableView, position: tag)
 		let postID = posts[tag].objectId!
 		let query  = PFQuery(className: "Posts")
 		var isLiked = false
@@ -166,12 +168,16 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 						let likeCount = post?["likedCount"] ?? 0
 						post?["likedCount"] = likeCount as! Int - 1
 						post?.remove(PFUser.current()!, forKey: "likedBy")
+						let label = self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!) as! PostCell
+						label.likeCountLabel.text = "\(likeCount as! Int - 1)"
 					} else if !isLiked {
 						print("isliked = false")
 						sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
 						let likeCount = post?["likedCount"] ?? 0
 						post?["likedCount"] = likeCount as! Int + 1
 						post?.add(PFUser.current()!, forKey: "likedBy")
+						let label = self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!) as! PostCell
+						label.likeCountLabel.text = "\(likeCount as! Int + 1)"
 					}
 					do {
 						let results: () = try post!.save()
@@ -187,6 +193,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 				print("post = nil")
 			}
 		}
+	}
+	func selectRow(tableView: UITableView, position: Int) {
+		let sizeTable = tableView.numberOfRows(inSection: 0)
+		guard position >= 0 && position < sizeTable else { return }
+		let indexPath = IndexPath(row: position, section: 0)
+		tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
 	}
 
 	func refreshPosts() {
