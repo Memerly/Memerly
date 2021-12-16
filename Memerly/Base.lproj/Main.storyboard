@@ -478,7 +478,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-h8-C94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1097" y="1859"/>
+            <point key="canvasLocation" x="2313" y="2510"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="jZK-2b-q6H">
@@ -1236,7 +1236,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w8d-0X-Eva" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1939.1304347826087" y="1599.7767857142856"/>
+            <point key="canvasLocation" x="2314" y="1756"/>
         </scene>
         <!--Meme View Controller-->
         <scene sceneID="oFG-v9-rTD">
