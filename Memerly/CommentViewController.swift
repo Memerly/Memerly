@@ -8,6 +8,7 @@
 import UIKit
 import Parse
 import AlamofireImage
+import MessageInputBar
 
 protocol CommentViewControllerDelegate: AnyObject {
 
@@ -15,7 +16,7 @@ protocol CommentViewControllerDelegate: AnyObject {
 	func CommentViewControllerDidFinish(_ commentViewController: CommentViewController)
 }
 
-class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDelegate {
+class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAdaptivePresentationControllerDelegate, UITextViewDelegate {
 
 	let currentUser = PFUser.current()!
 	var comments = [PFObject]()
@@ -23,6 +24,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 	var poster:PFUser = PFUser()
 	var postURLString = String()
 	var post: PFObject?
+	var postCaptian = String()
 	var sentBy = String()
 	let myRefreshControl = UIRefreshControl() // pull to refresh
 	var posts = [PFObject]()
@@ -40,12 +42,21 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 	@IBOutlet weak var postCommentButton: UIButton!
 	@IBOutlet weak var deletePostButton: UIButton!
 	@IBOutlet weak var noCommentsLabel: UILabel!
+//	@IBOutlet weak var commentTextField: UITextField!
 
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		view.endEditing(true)
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		commentsTableView.delegate = self
 		commentsTableView.dataSource = self
+		commentTextView.textColor = UIColor.gray
+		commentTextView.text = "Post your comment!"
+		commentTextView.delegate = self
+		postCommentButton.alpha = 0.5
+		postCommentButton.isEnabled = false
 
 		isModalInPresentation = true
 
@@ -143,6 +154,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 		let postURL = URL(string: postURLString)!
 		memeImageView.af.setImage(withURL: postURL)
+		captionLabel.text = self.postCaptian
 		let query  = PFQuery(className: "Posts")
 		query.getObjectInBackground(withId: postID) { (post, error) in
 			if post != nil {
@@ -280,7 +292,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 		cell.profilePicImageView.layer.borderColor = UIColor.clear.cgColor
 		cell.profilePicImageView.clipsToBounds = true
 
+		cell.commentLabel.sizeToFit()
 		cell.commentLabel.text = comment["comment"] as? String
+		cell.setNeedsLayout()
 
 		return cell
 	}
@@ -300,6 +314,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 					post?.add(self.currentUser, forKey: "commentedBy")
 					do {
 						let results: () = try comment.save()
+						self.commentTextView.text = nil
+						self.commentTextView.resignFirstResponder()
 						self.refreshComments()
 						print(results)
 					} catch {
@@ -373,7 +389,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 					do {
 						let results: [PFObject] = try query.findObjects()
 						self.posts = results
-						print("I hate everything")
 					} catch {
 						print(error)
 					}
@@ -395,6 +410,10 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
 	    print(segue)
+	    if let vc = segue.destination as? LargePicViewController {
+		    vc.img = memeImageView.image!
+
+	    }
     }
 
 
@@ -406,4 +425,33 @@ extension Collection where Element: Equatable {
 
 extension Collection {
 	func indices(where isIncluded: (Element) throws -> Bool) rethrows -> [Index] { try indices.filter { try isIncluded(self[$0]) } }
+}
+
+extension CommentViewController {
+
+	func textViewDidBeginEditing (_ textView: UITextView) {
+		if textView.text.isEmpty || (textView.text == "Post your comment!" && textView.textColor != .white) {
+			textView.text = nil
+			textView.textColor = .white // YOUR PREFERED COLOR HERE
+		}
+	}
+	func textViewDidChange(_ textView: UITextView) {
+		if !textView.text.isEmpty {
+			self.postCommentButton.isEnabled = true
+			self.postCommentButton.alpha = 1
+
+		} else {
+			self.postCommentButton.isEnabled = false
+			self.postCommentButton.alpha = 0.5
+
+		}
+	}
+	func textViewDidEndEditing (_ textView: UITextView) {
+		if textView.text.isEmpty {
+			textView.textColor = UIColor.gray // YOUR PREFERED PLACEHOLDER COLOR HERE
+			textView.text =  "Post your comment!"
+			self.postCommentButton.isEnabled = false
+			self.postCommentButton.alpha = 0.5
+		}
+	}
 }

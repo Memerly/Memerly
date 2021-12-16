@@ -17,12 +17,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 	let defaultProfilePic = UIImage(systemName: "person.fill")?.withTintColor(UIColor.systemGray3)
 	let defaultBannerPic = UIImage(named: "Default Banner Image")
 
-	@IBOutlet weak var bannerPicImageView: UIImageView!
+//	@IBOutlet weak var bannerPicImageView: UIImageView!
 	@IBOutlet weak var profilePicImageView: UIImageView!
 	@IBOutlet weak var usernameLabel: UILabel!
 	@IBOutlet weak var bioTextView: UITextView!
 	@IBOutlet weak var clearProfilePicButton: UIButton!
-	@IBOutlet weak var clearBannerPicButton: UIButton!
+//	@IBOutlet weak var clearBannerPicButton: UIButton!
 	@IBOutlet weak var rememberMeButton: CheckBoxButton!
 	@IBOutlet weak var rememberMeLabel: UILabel!
 
@@ -72,19 +72,19 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 			clearProfilePicButton.isHidden = true
 		}
 
-		let bannerPic = currentUser["bannerPic"]
-		if bannerPic != nil {
-			let img = bannerPic as! PFFileObject
-			if img.name.contains("defaultBannerPic.png") {
-				bannerPicImageView.image = defaultBannerPic
-				clearBannerPicButton.isHidden = true
-			} else {
-				let urlString = img.url!
-				let url = URL(string: urlString)!
-				//bannerPicImageView.af.setImage(withURL: url)
-				//clearBannerPicButton.isHidden = false
-			}
-		}
+//		let bannerPic = currentUser["bannerPic"]
+//		if bannerPic != nil {
+//			let img = bannerPic as! PFFileObject
+//			if img.name.contains("defaultBannerPic.png") {
+////				bannerPicImageView.image = defaultBannerPic
+////				clearBannerPicButton.isHidden = true
+//			} else {
+//				let urlString = img.url!
+//				let url = URL(string: urlString)!
+//				//bannerPicImageView.af.setImage(withURL: url)
+//				//clearBannerPicButton.isHidden = false
+//			}
+//		}
 //		if bannerPic == nil || bannerPicImageView.image == defaultBannerPic {
 //			clearBannerPicButton.isHidden = true
 //		}
@@ -110,7 +110,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 		if sender.tag == 0 {
 			activeImageView = profilePicImageView
 		} else if sender.tag == 1 {
-			activeImageView = bannerPicImageView
+//			activeImageView = bannerPicImageView
 		}
 		let picker = UIImagePickerController()
 		picker.delegate = self
@@ -134,11 +134,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 			let scaledImage = image.af.imageAspectScaled(toFill: size)
 			activeImageView?.image = scaledImage
 			clearProfilePicButton.isHidden = false
-		} else if activeImageView == bannerPicImageView {
-			let size = CGSize(width: 414, height: 211)
-			let scaledImage = image.af.imageAspectScaled(toFill: size)
-			activeImageView?.image = scaledImage
 		}
+//		else if activeImageView == bannerPicImageView {
+//			let size = CGSize(width: 414, height: 211)
+//			let scaledImage = image.af.imageAspectScaled(toFill: size)
+//			activeImageView?.image = scaledImage
+//		}
 
 		dismiss(animated: true, completion: nil)
 	}
@@ -154,14 +155,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 		}
 	}
 	
-	@IBAction func onClearBannerPicButton(_ sender: Any) {
-		if bannerPicImageView.image != defaultBannerPic {
-			bannerPicImageView.image = defaultBannerPic
-			clearBannerPicButton.isHidden = true
-		} else {
-			clearBannerPicButton.isHidden = false
-		}
-	}
+//	@IBAction func onClearBannerPicButton(_ sender: Any) {
+//		if bannerPicImageView.image != defaultBannerPic {
+//			bannerPicImageView.image = defaultBannerPic
+//			clearBannerPicButton.isHidden = true
+//		} else {
+//			clearBannerPicButton.isHidden = false
+//		}
+//	}
 
 	@IBAction func onDoneButton(_ sender: Any)  {
 		currentUser["bio"] = bioTextView.text

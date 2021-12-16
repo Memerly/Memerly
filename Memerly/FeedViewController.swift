@@ -35,7 +35,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         // pull to refresh
         myRefreshControl.addTarget(self, action: #selector(viewDidAppear), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
-        self.tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
+	    tableView.estimatedRowHeight = 200
     }
 	@objc private func onLogoutButton() {
 		defaults.set(false, forKey: "rememberMe")
@@ -250,6 +251,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 			    commentViewController.postID = selectedPost.objectId!
 			    commentViewController.poster = selectedPoster
 			    commentViewController.post = selectedPost
+			    commentViewController.postCaptian = selectedPost["caption"] as! String
 
 		    default:
 			    break

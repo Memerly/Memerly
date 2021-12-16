@@ -20,6 +20,7 @@
 		3754BB312767238400786D7C /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754BB302767238400786D7C /* Meme.swift */; };
 		3754BB3527672E9500786D7C /* Memes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754BB3427672E9500786D7C /* Memes.swift */; };
 		37A8B2CF274B5FB00066E596 /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8B2CE274B5FB00066E596 /* OtherProfileViewController.swift */; };
+		37E65F65276B538D00A0AB14 /* LargePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E65F64276B538D00A0AB14 /* LargePicViewController.swift */; };
 		37F6A04B275E0C3000FA1F65 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F6A04A275E0C3000FA1F65 /* CommentViewController.swift */; };
 		37F6A04D275E0F0200FA1F65 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F6A04C275E0F0200FA1F65 /* CommentsTableViewCell.swift */; };
 		BF8CFB9C5F476EA9346A6E80 /* Pods_Memerly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F620666CF50B3560B883B8E5 /* Pods_Memerly.framework */; };
@@ -73,6 +74,7 @@
 		3754BB302767238400786D7C /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		3754BB3427672E9500786D7C /* Memes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memes.swift; sourceTree = "<group>"; };
 		37A8B2CE274B5FB00066E596 /* OtherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewController.swift; sourceTree = "<group>"; };
+		37E65F64276B538D00A0AB14 /* LargePicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargePicViewController.swift; sourceTree = "<group>"; };
 		37F6A04A275E0C3000FA1F65 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		37F6A04C275E0F0200FA1F65 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		889144BA56525BD4A15445A8 /* Pods_Memerly_MemerlyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memerly_MemerlyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +197,7 @@
 				F6A69DD9273F21D800D86F2B /* FeedViewController.swift */,
 				37477A8D275B7E5700C30A67 /* EditProfileViewController.swift */,
 				F6A69DDB273F220E00D86F2B /* PostViewController.swift */,
+				37E65F64276B538D00A0AB14 /* LargePicViewController.swift */,
 				37F6A04A275E0C3000FA1F65 /* CommentViewController.swift */,
 				3754BB2E27670E4E00786D7C /* MemeViewController.swift */,
 				37477A8F275C8F3700C30A67 /* CheckBoxButton.swift */,
@@ -495,6 +498,7 @@
 				F6825AAD2730ACFB00D2E438 /* SceneDelegate.swift in Sources */,
 				3754BB312767238400786D7C /* Meme.swift in Sources */,
 				F6A4B0FC274978C100748661 /* PostCell.swift in Sources */,
+				37E65F65276B538D00A0AB14 /* LargePicViewController.swift in Sources */,
 				37F6A04D275E0F0200FA1F65 /* CommentsTableViewCell.swift in Sources */,
 				3734C5D827699B0900DB4418 /* CustomAPIMeme.swift in Sources */,
 			);
