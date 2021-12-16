@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nzi-sk-fNU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nzi-sk-fNU">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -723,7 +723,7 @@
             <objects>
                 <viewController storyboardIdentifier="commentViewController" id="IpE-rV-Plc" customClass="CommentViewController" customModule="Memerly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TqM-s5-jxd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B01-om-fPN">
@@ -1242,12 +1242,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bn5-xO-Wdd">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bn5-xO-Wdd">
                                 <rect key="frame" x="20" y="60" width="374" height="360"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Bn5-xO-Wdd" secondAttribute="height" multiplier="374:373" id="2sQ-Kb-Er8"/>
+                                    <constraint firstAttribute="width" secondItem="Bn5-xO-Wdd" secondAttribute="height" multiplier="374:373" constant="10.026809651474537" id="2sQ-Kb-Er8"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="o16-Fs-Unq" appends="YES" id="wFV-xL-tAW"/>
@@ -1279,13 +1279,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Text Box 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIT-Ib-qBY">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Text Box 1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIT-Ib-qBY">
                                                     <rect key="frame" x="16" y="11" width="354" height="63"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LIT-Ib-qBY" secondAttribute="trailing" constant="-16" id="369-bN-3Aj"/>
+                                                <constraint firstItem="LIT-Ib-qBY" firstAttribute="leading" secondItem="0X1-uK-Dw6" secondAttribute="leadingMargin" constant="-4" id="SdJ-16-LOE"/>
+                                                <constraint firstItem="LIT-Ib-qBY" firstAttribute="bottom" secondItem="0X1-uK-Dw6" secondAttribute="bottomMargin" id="uze-Ka-71x"/>
+                                                <constraint firstItem="LIT-Ib-qBY" firstAttribute="top" secondItem="0X1-uK-Dw6" secondAttribute="topMargin" id="z65-Mc-a4r"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="textBoxTextField" destination="LIT-Ib-qBY" id="EC6-FJ-wMw"/>
@@ -1293,7 +1298,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jg-XL-N8f">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jg-XL-N8f">
                                 <rect key="frame" x="254" y="739" width="140" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="eyo-hm-M3F"/>
@@ -1327,6 +1332,14 @@
                                     <action selector="onPostButton:" destination="AkJ-UZ-ofK" eventType="touchUpInside" id="kcB-Dd-dbl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSb-7f-JIf">
+                                <rect key="frame" x="214" y="495" width="180" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Choose your own photo"/>
+                                <connections>
+                                    <action selector="onCameraButton:" destination="AkJ-UZ-ofK" eventType="touchUpInside" id="Z8Q-VE-OH9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lVe-tC-XU0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1339,17 +1352,20 @@
                             <constraint firstItem="KGH-ad-SOA" firstAttribute="top" secondItem="S86-yh-EK8" secondAttribute="bottom" constant="41" id="Hik-cH-v26"/>
                             <constraint firstItem="KGH-ad-SOA" firstAttribute="leading" secondItem="S86-yh-EK8" secondAttribute="leading" id="JJC-Ws-801"/>
                             <constraint firstItem="TBL-M2-HcL" firstAttribute="leading" secondItem="lVe-tC-XU0" secondAttribute="leading" constant="20" id="K5n-eb-RJJ"/>
-                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="centerY" secondItem="KGH-ad-SOA" secondAttribute="centerY" id="KXt-mv-sFT"/>
+                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="centerY" secondItem="KGH-ad-SOA" secondAttribute="centerY" constant="-43.5" id="KXt-mv-sFT"/>
                             <constraint firstItem="TBL-M2-HcL" firstAttribute="top" secondItem="pAH-Ig-ocS" secondAttribute="bottom" constant="16" id="MZZ-Bd-q7i"/>
-                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="top" secondItem="S86-yh-EK8" secondAttribute="bottom" constant="41" id="NCd-5r-BQN"/>
-                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="bottom" secondItem="KGH-ad-SOA" secondAttribute="bottom" id="Nlf-d3-OOr"/>
+                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="top" secondItem="S86-yh-EK8" secondAttribute="bottom" constant="-2" id="NCd-5r-BQN"/>
+                            <constraint firstItem="4Jg-XL-N8f" firstAttribute="bottom" secondItem="KGH-ad-SOA" secondAttribute="bottom" constant="-44" id="Nlf-d3-OOr"/>
                             <constraint firstItem="4Jg-XL-N8f" firstAttribute="trailing" secondItem="S86-yh-EK8" secondAttribute="trailing" id="OMB-F7-dsR"/>
+                            <constraint firstItem="BSb-7f-JIf" firstAttribute="top" secondItem="pAH-Ig-ocS" secondAttribute="top" id="PWR-MZ-76f"/>
                             <constraint firstItem="pAH-Ig-ocS" firstAttribute="leading" secondItem="lVe-tC-XU0" secondAttribute="leading" constant="20" id="SrW-tK-BGj"/>
                             <constraint firstItem="lVe-tC-XU0" firstAttribute="trailing" secondItem="TBL-M2-HcL" secondAttribute="trailing" constant="20" id="X7q-5r-gD8"/>
                             <constraint firstItem="S86-yh-EK8" firstAttribute="top" secondItem="TBL-M2-HcL" secondAttribute="bottom" constant="8.6699999999999999" id="esC-5b-gIa"/>
-                            <constraint firstItem="pAH-Ig-ocS" firstAttribute="top" secondItem="Bn5-xO-Wdd" secondAttribute="bottom" constant="18" id="lVk-kg-VcA"/>
+                            <constraint firstItem="pAH-Ig-ocS" firstAttribute="top" secondItem="Bn5-xO-Wdd" secondAttribute="bottom" constant="73.666666666666686" id="lVk-kg-VcA"/>
+                            <constraint firstItem="BSb-7f-JIf" firstAttribute="leading" secondItem="pAH-Ig-ocS" secondAttribute="trailing" constant="14" id="lsZ-EJ-Jhc"/>
                             <constraint firstItem="4Jg-XL-N8f" firstAttribute="leading" secondItem="KGH-ad-SOA" secondAttribute="trailing" constant="94" id="r44-TC-L0E"/>
-                            <constraint firstItem="Bn5-xO-Wdd" firstAttribute="top" secondItem="lVe-tC-XU0" secondAttribute="top" constant="16" id="yhj-8p-tfC"/>
+                            <constraint firstItem="BSb-7f-JIf" firstAttribute="centerY" secondItem="pAH-Ig-ocS" secondAttribute="centerY" id="tsZ-4t-Mul"/>
+                            <constraint firstItem="Bn5-xO-Wdd" firstAttribute="top" secondItem="lVe-tC-XU0" secondAttribute="top" constant="-29.666666666666664" id="yhj-8p-tfC"/>
                             <constraint firstItem="TBL-M2-HcL" firstAttribute="leading" secondItem="lVe-tC-XU0" secondAttribute="leading" constant="20" id="zTe-PZ-Zvb"/>
                         </constraints>
                     </view>
@@ -1364,6 +1380,7 @@
                     <connections>
                         <outlet property="addCaptionTextField" destination="S86-yh-EK8" id="HAO-Um-OJn"/>
                         <outlet property="cameraTapRecognizer" destination="o16-Fs-Unq" id="XvT-rN-7bz"/>
+                        <outlet property="choosePhotoButton" destination="BSb-7f-JIf" id="cmR-e5-eAc"/>
                         <outlet property="memPickerButton" destination="pAH-Ig-ocS" id="Dly-ZL-PE3"/>
                         <outlet property="memeImageView" destination="Bn5-xO-Wdd" id="pds-FA-wuj"/>
                         <outlet property="textBoxTableView" destination="TBL-M2-HcL" id="bTY-sH-QEk"/>
@@ -1376,7 +1393,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="35" y="2379"/>
+            <point key="canvasLocation" x="34.782608695652179" y="2378.5714285714284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8PS-Rs-q8h">

@@ -28,6 +28,7 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
 	weak var delegate: MemeViewControllerDelegate?
 
+	@IBOutlet weak var choosePhotoButton: UIButton!
 	@IBOutlet var cameraTapRecognizer: UITapGestureRecognizer!
 	@IBOutlet weak var memeImageView: UIImageView!
 	@IBOutlet weak var textBoxTableView: UITableView!
@@ -174,12 +175,14 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
 			photoURL = URL(string: "")
 			cameraTapRecognizer.isEnabled = false
+			choosePhotoButton.isHidden = true
 			memeImageView.isUserInteractionEnabled = false
 			memeImageView.af.setImage(withURL: url)
 		} else {
 			photoURL = URL(string: "")
 			cameraTapRecognizer.isEnabled = true
 			memeImageView.isUserInteractionEnabled = true
+			choosePhotoButton.isHidden = false
 			memeImageView.image = defaultImage
 		}
 		textBoxTableView.reloadData()
