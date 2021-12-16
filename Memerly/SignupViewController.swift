@@ -8,7 +8,7 @@
 import UIKit
 import Parse
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
@@ -54,6 +54,11 @@ class SignupViewController: UIViewController {
         user["lName"] = lastNameField.text
         user.username = usernameField.text
         user.password = passwordField.text
+
+	    let imageData = profileImangeView.image!.pngData()
+	    let file = PFFileObject(name: "image.png", data: imageData!)
+
+	    user["profilePic"] = file
         
         user.signUpInBackground { (success, error) in
             if success {
@@ -65,6 +70,33 @@ class SignupViewController: UIViewController {
         }
         
     }
+	@IBAction func onCameraButton(_ sender: Any) {
+		let picker = UIImagePickerController()
+		picker.delegate = self
+		picker.allowsEditing = true
+
+		if UIImagePickerController.isSourceTypeAvailable(.camera) {
+			picker.sourceType = .camera
+		}
+		else {
+			picker.sourceType = .photoLibrary
+		}
+
+		present(picker, animated: true, completion: nil)
+
+	}
+
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+		let image = info[.editedImage] as! UIImage
+
+		let size = CGSize(width: 300, height: 300)
+		let scaledImage = image.af.imageAspectScaled(toFill: size)
+
+		profileImangeView.image = scaledImage
+//		clearButton.isHidden = false
+//		postButton.isHidden = false
+		dismiss(animated: true, completion: nil)
+	}
 
 	@IBAction func onSignInButton(_ sender: Any) {
 		self.navigationController?.popViewController(animated: true)
