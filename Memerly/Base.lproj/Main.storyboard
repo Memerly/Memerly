@@ -492,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-h8-C94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2313" y="2510"/>
+            <point key="canvasLocation" x="1029" y="2346"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="jZK-2b-q6H">
@@ -1253,7 +1253,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w8d-0X-Eva" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2314" y="1756"/>
+            <point key="canvasLocation" x="1029" y="1600"/>
         </scene>
         <!--Meme View Controller-->
         <scene sceneID="oFG-v9-rTD">
@@ -1414,7 +1414,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="2378.5714285714284"/>
+            <point key="canvasLocation" x="35" y="2346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8PS-Rs-q8h">
@@ -1451,7 +1451,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Wy-Se-Yau" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="1646.6517857142856"/>
+            <point key="canvasLocation" x="35" y="1600"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

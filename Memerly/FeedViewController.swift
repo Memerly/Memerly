@@ -243,7 +243,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 			    let index = button.tag
 			    let post = posts[index]
 			    vc.user = post["author"] as! PFUser
-			    vc.posts = posts
+//			    vc.posts = posts
 		    }
 	    }
     }
