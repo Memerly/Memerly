@@ -16,6 +16,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 	@IBOutlet weak var clearButton: UIButton!
 	@IBOutlet weak var postButton: UIButton!
 
+	var memeImage = UIImage()
     
     
     override func viewDidLoad() {
@@ -24,6 +25,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Do any additional setup after loading the view.
 	   //forcing darkmode
 	    overrideUserInterfaceStyle = .dark
+	    memeImageView.image = memeImage
 
     }
 

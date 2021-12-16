@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nzi-sk-fNU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nzi-sk-fNU">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1088,7 +1088,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.75" tag="2" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgO-Lx-bjv">
-                                <rect key="frame" x="338.66666666666669" y="405" width="55.333333333333314" height="39"/>
+                                <rect key="frame" x="337" y="405" width="57" height="39"/>
                                 <color key="tintColor" red="0.97647058959999999" green="0.87450981139999995" blue="0.2941176593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system" imagePadding="-12">
@@ -1324,7 +1324,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="NWX-Gc-Xi3">
                             <color key="tintColor" red="0.97647058959999999" green="0.87450981139999995" blue="0.2941176593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="Xbg-C1-8Jh" kind="show" id="DPM-zS-W4b"/>
+                                <segue destination="Xbg-C1-8Jh" kind="show" identifier="postView" id="DPM-zS-W4b"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

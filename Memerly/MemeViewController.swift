@@ -68,7 +68,7 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 		}
 
 			// move the root view up by the distance of keyboard height
-		self.view.frame.origin.y = 0 - keyboardSize.height
+		self.view.frame.origin.y = (keyboardSize.height - 100) - keyboardSize.height
 	}
 
 	@objc func keyboardWillHide(notification: NSNotification) {
@@ -230,6 +230,7 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     
 	@IBAction func onPreviewButton(_ sender: Any) {
+
 		let template_id = selectedMeme.id
 
 		if template_id != "custom" {
@@ -369,15 +370,23 @@ class MemeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 		addCaptionTextField.resignFirstResponder()
 	}
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+	    switch segue.identifier {
+		    case "postView":
+			    let vc = segue.destination as? PostViewController
+			    vc?.memeImage = self.memeImageView.image!
+		    default:
+			    break
+	    }
+	    
     }
-    */
+
 
 }
 extension UIImage {
