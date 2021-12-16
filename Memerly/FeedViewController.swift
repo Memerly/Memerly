@@ -94,9 +94,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 	    let likeCount = post["likedCount"] as? Int ?? 0
 	    if likeCount == 0 {
-		    cell.likeCountLabel.isHidden = true
+		    cell.likeCountLabel.text = ""
 	    } else {
-		    cell.likeCountLabel.isHidden = false
+//		    cell.likeCountLabel.isHidden = false
 		    cell.likeCountLabel.text = String(describing: likeCount)
 	    }
 
@@ -169,7 +169,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 						post?["likedCount"] = likeCount as! Int - 1
 						post?.remove(PFUser.current()!, forKey: "likedBy")
 						let label = self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!) as! PostCell
-						label.likeCountLabel.text = "\(likeCount as! Int - 1)"
+						if likeCount as! Int - 1 == 0 {
+							label.likeCountLabel.text = ""
+						} else {
+							label.likeCountLabel.text = "\(likeCount as! Int - 1)"
+						}
 					} else if !isLiked {
 						print("isliked = false")
 						sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
@@ -181,6 +185,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 					}
 					do {
 						let results: () = try post!.save()
+
+//						let label = self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!) as! PostCell
+//						label.likeCountLabel.text = "\(results[""])"
 						print(results)
 					} catch {
 						print(error)
