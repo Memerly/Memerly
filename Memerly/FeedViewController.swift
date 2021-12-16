@@ -185,9 +185,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 					}
 					do {
 						let results: () = try post!.save()
-
-//						let label = self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!) as! PostCell
-//						label.likeCountLabel.text = "\(results[""])"
 						print(results)
 					} catch {
 						print(error)
@@ -205,7 +202,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 		let sizeTable = tableView.numberOfRows(inSection: 0)
 		guard position >= 0 && position < sizeTable else { return }
 		let indexPath = IndexPath(row: position, section: 0)
-		tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+		tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
 	}
 
 	func refreshPosts() {
