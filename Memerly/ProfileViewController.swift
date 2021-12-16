@@ -105,7 +105,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = postsCollectionView.dequeueReusableCell(withReuseIdentifier: "postCollectionViewCell", for: indexPath) as! PostCollectionViewCell
+        let cell = postsCollectionView.dequeueReusableCell(withReuseIdentifier: "postCollectionViewCell", for: indexPath) as! PostCollectionViewCell
+        
 
 		let post = posts[indexPath.row]
 
